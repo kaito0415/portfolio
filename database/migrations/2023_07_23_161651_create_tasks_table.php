@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('class_id');
+            $table->foreignId('lecture_id');
             $table->string('name');
             $table->dateTime('limit');
             $table->timestamp('updated_at')->useCurrent();
