@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
             $table->foreignId('lecture_id')->constrained();
-            //'lecture_id'は、'lecturesテーブル'の'id'を参照する外部キーです
             $table->string('name');
             $table->dateTime('limit');
             $table->timestamp('updated_at')->useCurrent();
