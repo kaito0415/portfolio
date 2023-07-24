@@ -54,4 +54,9 @@ class User extends Authenticatable
         return $this->belongsToMany(Group::class);
     }
     
+    public function chats()
+    {
+        return $this->hasMany(Chat::class);
+    }
+    
 }

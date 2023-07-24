@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('chats', function (Blueprint $table) {
             $table->id();
             $table->foreignId('group_id')->constrained();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->constrained();
             $table->text('message');
             $table->timestamp('updated_at')->useCurrent();
             $table->timestamp('created_at')->useCurrent();
