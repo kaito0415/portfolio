@@ -13,4 +13,9 @@ class Group extends Model
     {
         return $this->belongsToMany(User::class);
     }
+    
+    public function chsts()
+    {
+        return $this->hasMany(Chat::class);
+    }
 }
