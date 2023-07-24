@@ -9,7 +9,7 @@ class Task extends Model
 {
     use HasFactory;
     
-    public function lectures()
+    public function lecture()
     {
         return $this->belongsTo(Lecture::class);
     }
