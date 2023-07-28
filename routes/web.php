@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LectureController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\GroupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,10 @@ Route::controller(TaskController::class)->middleware(['auth'])->group(function()
 
 Route::controller(CalendarController::class)->middleware(['auth'])->group(function(){
     Route::get('/calendars', 'home')->name('home');
+});
+
+Route::controller(GroupController::class)->middleware(['auth'])->group(function(){
+    Route::get('/groups/chat', 'chat')->name('chat');
 });
 
 Route::get('/dashboard', function () {
