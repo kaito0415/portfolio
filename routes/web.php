@@ -18,14 +18,14 @@ use App\Http\Controllers\TaskController;
 
 Route::controller(LectureController::class)->middleware(['auth'])->group(function(){
     Route::get('/', 'home')->name('home');
-    Route::get('/lecture/add', 'add')->name('add');
-    Route::get('/lecture/edit', 'edit')->name('edit');
-    Route::get('/lecture/detail', 'detail')->name('detail');
+    Route::get('/lectures/add', 'add')->name('add');
+    Route::get('/lectures/edit', 'edit')->name('edit');
+    Route::get('/lectures/detail', 'detail')->name('detail');
 });
 
 Route::controller(TaskController::class)->middleware(['auth'])->group(function(){
-    Route::get('/task/add', 'add')->name('add');
-    Route::get('/task/edit', 'edit')->name('edit');
+    Route::get('/tasks/add', 'add')->name('add');
+    Route::get('/tasks/edit', 'edit')->name('edit');
 });
 
 Route::get('/dashboard', function () {
