@@ -25,6 +25,7 @@ Route::controller(LectureController::class)->middleware(['auth'])->group(functio
 
 Route::controller(TaskController::class)->middleware(['auth'])->group(function(){
     Route::get('/task/add', 'add')->name('add');
+    Route::get('/task/edit', 'edit')->name('edit');
 });
 
 Route::get('/dashboard', function () {
