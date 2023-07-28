@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LectureController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::controller(LectureController::class)->middleware(['auth'])->group(function(){
+    Route::get('/', 'home')->name('home');
 });
 
 Route::get('/dashboard', function () {
