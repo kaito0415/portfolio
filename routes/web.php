@@ -37,6 +37,7 @@ Route::controller(CalendarController::class)->middleware(['auth'])->group(functi
 
 Route::controller(GroupController::class)->middleware(['auth'])->group(function(){
     Route::get('/groups/chat', 'chat')->name('chat');
+    Route::get('/groups/invite', 'invite')->name('invite');
 });
 
 Route::get('/dashboard', function () {
