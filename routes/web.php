@@ -18,9 +18,9 @@ use App\Http\Controllers\TaskController;
 
 Route::controller(LectureController::class)->middleware(['auth'])->group(function(){
     Route::get('/', 'home')->name('home');
-    Route::get('/add', 'add')->name('add');
-    Route::get('/edit', 'edit')->name('edit');
-    Route::get('/detail', 'detail')->name('detail');
+    Route::get('/lecture/add', 'add')->name('add');
+    Route::get('/lecture/edit', 'edit')->name('edit');
+    Route::get('/lecture/detail', 'detail')->name('detail');
 });
 
 Route::controller(TaskController::class)->middleware(['auth'])->group(function(){
