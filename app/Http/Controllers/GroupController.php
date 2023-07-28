@@ -11,4 +11,9 @@ class GroupController extends Controller
     {
         return view('groups.chat')->with(['groups' => $group->get()]);
     }
+    
+    public function invite(Group $group)
+    {
+        return view('groups.invite')->with(['groups' => $group->get()]);
+    }
 }
