@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LectureController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\CalendarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,10 @@ Route::controller(TaskController::class)->middleware(['auth'])->group(function()
     Route::get('/tasks/add', 'add')->name('add');
     Route::get('/tasks/edit', 'edit')->name('edit');
     Route::get('/tasks/detail', 'detail')->name('detail');
+});
+
+Route::controller(CalendarController::class)->middleware(['auth'])->group(function(){
+    Route::get('/calendars', 'home')->name('home');
 });
 
 Route::get('/dashboard', function () {
