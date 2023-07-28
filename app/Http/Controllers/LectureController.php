@@ -21,4 +21,9 @@ class LectureController extends Controller
     {
         return view('lectures.edit')->with(['lectures' => $lecture->get()]);
     }
+    
+    public function detail(Lecture $lecture)
+    {
+        return view('lectures.detail')->with(['lectures' => $lecture->get()]);
+    }
 }

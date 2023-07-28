@@ -19,6 +19,7 @@ Route::controller(LectureController::class)->middleware(['auth'])->group(functio
     Route::get('/', 'home')->name('home');
     Route::get('/add', 'add')->name('add');
     Route::get('/edit', 'edit')->name('edit');
+    Route::get('/detail', 'detail')->name('detail');
 });
 
 Route::get('/dashboard', function () {
