@@ -17,6 +17,7 @@ use App\Http\Controllers\LectureController;
 
 Route::controller(LectureController::class)->middleware(['auth'])->group(function(){
     Route::get('/', 'home')->name('home');
+    Route::get('/add', 'add')->name('add');
 });
 
 Route::get('/dashboard', function () {

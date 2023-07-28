@@ -11,4 +11,9 @@ class LectureController extends Controller
     {
         return view('home.index')->with(['lectures' => $lecture->get()]);
     }
+    
+    public function add(Lecture $lecture)
+    {
+        return view('lectures.add')->with(['lectures' => $lecture->get()]);
+    }
 }
