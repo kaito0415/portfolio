@@ -11,4 +11,9 @@ class TaskController extends Controller
    {
        return view('tasks.add')->with(['tasks' => $task->get()]);
    }
+   
+   public function edit(Task $task)
+   {
+       return view('tasks.edit')->with(['tasks' => $task->get()]);
+   }
 }
