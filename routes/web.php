@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LectureController;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,10 @@ Route::controller(LectureController::class)->middleware(['auth'])->group(functio
     Route::get('/add', 'add')->name('add');
     Route::get('/edit', 'edit')->name('edit');
     Route::get('/detail', 'detail')->name('detail');
+});
+
+Route::controller(TaskController::class)->middleware(['auth'])->group(function(){
+    Route::get('/task/add', 'add')->name('add');
 });
 
 Route::get('/dashboard', function () {
