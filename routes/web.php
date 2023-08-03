@@ -20,6 +20,7 @@ use App\Http\Controllers\GroupController;
 
 Route::controller(LectureController::class)->middleware(['auth'])->group(function(){
     Route::get('/', 'home')->name('home');
+    Route::post('lectures', 'store')->name('store');
     Route::get('/lectures/add', 'add')->name('add');
     Route::get('/lectures/edit', 'edit')->name('edit');
     Route::get('/lectures/detail', 'detail')->name('detail');
