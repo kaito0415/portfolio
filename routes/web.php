@@ -28,7 +28,8 @@ Route::controller(LectureController::class)->middleware(['auth'])->group(functio
 });
 
 Route::controller(TaskController::class)->middleware(['auth'])->group(function(){
-    Route::get('/tasks/add', 'add')->name('add');
+    Route::post('/tasks', 'store')->name('store');
+    Route::get('/tasks/{lecture}/add', 'add')->name('add');
     Route::get('/tasks/edit', 'edit')->name('edit');
     Route::get('/tasks/detail', 'detail')->name('detail');
 });
