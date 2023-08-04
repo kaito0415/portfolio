@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Lecture;
+use App\Http\Requests\LectureRequest;
 
 class LectureController extends Controller
 {
@@ -17,16 +18,24 @@ class LectureController extends Controller
         return view('lectures.add')->with(['lectures' => $lecture->get()]);
     }
     
-    public function store(Request $request, Lecture $lecture)
+    public function store(LectureRequest $request, Lecture $lecture)
     {
         $input = $request['lecture'];
         $lecture->fill($input)->save();
         return redirect('/lectures/detail');
     }
     
+    public function update(LectureRequest $request, Lecture $lecture)
+    {
+        $input_lecture = $request['lecture'];
+        $lecture->fill($input_lecture)->save();
+        
+        return redirect('/lectures/detail');
+    }
+    
     public function edit(Lecture $lecture)
     {
-        return view('lectures.edit')->with(['lectures' => $lecture->get()]);
+        return view('lectures.edit')->with(['lecture' => $lecture]);
     }
     
     public function detail(Lecture $lecture)
