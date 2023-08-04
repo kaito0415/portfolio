@@ -32,7 +32,7 @@ Route::controller(TaskController::class)->middleware(['auth'])->group(function()
     Route::get('/tasks/{task}/add', 'add')->name('add');
     Route::get('/tasks/{task}/edit', 'edit')->name('edit');
     Route::put('/tasks/{task}', 'update')->name('update');
-    Route::get('/tasks/detail', 'detail')->name('detail');
+    Route::get('/tasks/{task}/detail', 'detail')->name('detail');
 });
 
 Route::controller(CalendarController::class)->middleware(['auth'])->group(function(){
