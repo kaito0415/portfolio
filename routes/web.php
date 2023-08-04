@@ -24,7 +24,7 @@ Route::controller(LectureController::class)->middleware(['auth'])->group(functio
     Route::get('/lectures/add', 'add')->name('add');
     Route::get('/lectures/{lecture}/edit', 'edit')->name('edit');
     Route::put('/lectures/{lecture}', 'update')->name('update');
-    Route::get('/lectures/detail', 'detail')->name('detail');
+    Route::get('/lectures/{lecture}/detail', 'detail')->name('detail');
 });
 
 Route::controller(TaskController::class)->middleware(['auth'])->group(function(){

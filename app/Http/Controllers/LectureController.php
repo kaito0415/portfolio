@@ -40,6 +40,6 @@ class LectureController extends Controller
     
     public function detail(Lecture $lecture)
     {
-        return view('lectures.detail')->with(['lectures' => $lecture->get()]);
+        return view('lectures.detail')->with(['lecture' => $lecture]);
     }
 }

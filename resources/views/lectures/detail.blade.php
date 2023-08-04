@@ -12,7 +12,23 @@
             
         </x-slot>
         <body>
-            
+            <h1 class="name">
+                {{ $lecture->name }}
+            </h1>
+            <div class="detail">
+                <div class="detail_period">
+                    <p>{{ $lecture->period }}時限目</p>
+                </div>
+                <div class="detail_day_of_week">
+                    <p>{{ $lecture->period }}</p>
+                </div>
+                <div class="detail_classroom">
+                    <p>{{ $lecture->classroom }}</p>
+                </div>
+                <div class="detail_credit">
+                    <p>{{ $lecture->credit }}単位</p>
+                </div>
+            </div>
         </body>
     </x-app-layout>
 </html>
