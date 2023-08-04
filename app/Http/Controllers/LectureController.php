@@ -22,7 +22,7 @@ class LectureController extends Controller
     {
         $input = $request['lecture'];
         $lecture->fill($input)->save();
-        return redirect('/lectures/detail');
+        return redirect('/lectures/' . $lecture->id . '/detail');
     }
     
     public function update(LectureRequest $request, Lecture $lecture)
@@ -30,7 +30,7 @@ class LectureController extends Controller
         $input_lecture = $request['lecture'];
         $lecture->fill($input_lecture)->save();
         
-        return redirect('/lectures/detail');
+        return redirect('/lectures/' . $lecture->id . '/detail');
     }
     
     public function edit(Lecture $lecture)
