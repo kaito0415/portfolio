@@ -20,7 +20,7 @@ class TaskController extends Controller
         $task->fill($input)->save();
         
         
-        return redirect('/tasks/detail');
+        return redirect('/tasks/{tasks}/detail');
     }
     
     public function update(TaskRequest $request, Task $task)
@@ -37,6 +37,6 @@ class TaskController extends Controller
    
    public function detail(Task $task)
    {
-       return view('tasks.detail')->with(['tasks' => $task->get()]);
+       return view('tasks.detail')->with(['task' => $task]);
    }
 }
