@@ -41,6 +41,8 @@ Route::controller(CalendarController::class)->middleware(['auth'])->group(functi
 });
 
 Route::controller(GroupController::class)->middleware(['auth'])->group(function(){
+    Route::get('/groups/make', 'make')->name('make');
+    Route::post('/groups', 'store')->name('store');
     Route::get('/groups/invite', 'invite')->name('invite');
 });
 

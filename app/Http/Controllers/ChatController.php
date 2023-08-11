@@ -4,17 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Chat;
-use App\Http\Requests\chatRequest;
+use App\Http\Requests\ChatRequest;
 
 class ChatController extends Controller
 {
     
-    public function chat(Group $group, Chat $chat)
+    public function chat(Chat $chat)
     {
-        return view('groups.chat')->with([
-            'group' => $group,
-            'chats' => $chat
-            ]);
+        return view('chats.chat')->with(['chats' => $chat]);
     }
     
     public function store(ChatRequest $request, Chat $chat)
