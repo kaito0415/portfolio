@@ -6,6 +6,7 @@ use App\Http\Controllers\LectureController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\ChatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,8 +41,12 @@ Route::controller(CalendarController::class)->middleware(['auth'])->group(functi
 });
 
 Route::controller(GroupController::class)->middleware(['auth'])->group(function(){
-    Route::get('/groups/chat', 'chat')->name('chat');
     Route::get('/groups/invite', 'invite')->name('invite');
+});
+
+Route::controller(ChatController::class)->middleware(['auth'])->group(function(){
+    Route::get('/chats/{chat}', 'chat')->name('chat');
+    Route::post('/chats', 'store')->name('store');
 });
 
 Route::get('/dashboard', function () {

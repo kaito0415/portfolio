@@ -9,6 +9,12 @@ class Chat extends Model
 {
     use HasFactory;
     
+    protected $fillable = [
+        'group_id',
+        'user_id',
+        'message',
+        ];
+    
     public function group()
     {
         return $this->belongsTo(Group::class);
