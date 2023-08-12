@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="submit_button">
-                    <button value="submit">保存</button>
+                    <button value="submit">送信</button>
                 </div>
             </form>
         </body>

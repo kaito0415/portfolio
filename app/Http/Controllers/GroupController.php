@@ -18,12 +18,17 @@ class GroupController extends Controller
     {
         $input = $request['group'];
         $group->fill($input)->save();
-        return redirect('/chats/' . $group->id);
+        return redirect('/groups/' . $group->id . '/chat');
     }
     
     public function invite(Group $group)
     {
         return view('groups.invite')->with(['groups' => $group->get()]);
+    }
+    
+    public function chat(Group $group)
+    {
+        return view('groups.chat')->with(['chats' => $group->getByChat()]);
     }
     
 }

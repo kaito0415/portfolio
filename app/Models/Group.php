@@ -16,8 +16,13 @@ class Group extends Model
         return $this->belongsToMany(User::class);
     }
     
-    public function chsts()
+    public function chats()
     {
         return $this->hasMany(Chat::class);
+    }
+    
+    public function getByChat(int $limit_count=10)
+    {
+        return $this->chats()->with('group')->orderBy('updated_at', 'DESC')->paginate($limit_count);
     }
 }
