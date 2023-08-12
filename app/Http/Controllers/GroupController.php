@@ -21,6 +21,18 @@ class GroupController extends Controller
         return redirect('/groups/' . $group->id . '/chat');
     }
     
+    public function edit(Group $group)
+    {
+        return view('groups.edit')->with(['group' => $group]);
+    }
+    
+    public function update(GroupRequest $request, Group $group)
+    {
+        $input_group = $request['group'];
+        $group->fill($input_group)->save();
+        return redirect('/groups/' . $group->id . '/chat');
+    }
+    
     public function invite(Group $group)
     {
         return view('groups.invite')->with(['groups' => $group->get()]);
