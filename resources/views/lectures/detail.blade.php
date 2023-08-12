@@ -29,6 +29,9 @@
                     <p>{{ $lecture->credit }}単位</p>
                 </div>
             </div>
+            <div class="edit">
+                <a href="/lectures/{{ $lecture->id }}/edit" class="lecture_edit">授業内容の編集</a>
+            </div>
         </body>
     </x-app-layout>
 </html>
