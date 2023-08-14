@@ -9,6 +9,12 @@ use App\Http\Requests\TaskRequest;
 
 class TaskController extends Controller
 {
+    
+   public function index(Task $task)
+   {
+       return view('tasks.index')->with(['tasks' => $task]);
+   }
+    
    public function add(Lecture $lecture) 
    {
        return view('tasks.add')->with(['lectures' => $lecture->get()]);

@@ -30,6 +30,7 @@ Route::controller(LectureController::class)->middleware(['auth'])->group(functio
 
 Route::controller(TaskController::class)->middleware(['auth'])->group(function(){
     Route::post('/tasks', 'store');
+    Route::get('/tasks/index', 'index')->name('task_index');
     Route::get('/tasks/add', 'add')->name('task_add');
     Route::get('/tasks/{task}/edit', 'edit');
     Route::put('/tasks/{task}', 'update');
