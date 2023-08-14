@@ -13,7 +13,7 @@
         </x-slot>
         <body>
             <h1 class="title">グループ名変更</h1>
-            <form action="/groups/{{ $group->id }}" method="POST">
+            <form action="/groups/{{ $group->id }}/{{ $user->id }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="create_name">

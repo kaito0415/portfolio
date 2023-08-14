@@ -12,10 +12,10 @@
             <h1 class="title">グループ作成</h1>
         </x-slot>
         <body>
-            <form action="/groups" method="POST">
+            <form action="/groups/{{ $user->id }}" method="POST">
                 @csrf
                 <div class="create_name">
-                    <h3>グループ名</h3>
+                    <h3>グループ名{{ $user->id }}</h3>
                     <div class="insert_name">
                         <input type="text" name="group[name]" placeholder="グループ名" />
                     </div>
