@@ -4,35 +4,36 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Task;
+use App\Models\Lecture;
 use App\Http\Requests\TaskRequest;
 
 class TaskController extends Controller
 {
-   public function add(Task $task) 
+   public function add(Lecture $lecture) 
    {
-       return view('tasks.add')->with(['tasks' => $task]);
+       return view('tasks.add')->with(['lectures' => $lecture->get()]);
    }
    
    public function store(TaskRequest $request, Task $task)
     {
         $input = $request['task'];
-        $input["lecture_id"] = 1;
         $task->fill($input)->save();
-        
-        
-        return redirect('/tasks/{tasks}/detail');
+        return redirect('/tasks/' . $task->id . '/detail');
     }
     
     public function update(TaskRequest $request, Task $task)
     {
         $input_task = $request['task'];
         $task->fill($input_task)->save();
-        return redirect('/tasks/detail');
+        return redirect('/tasks/' . $task->id . '/detail');
     }
    
-   public function edit(Task $task)
+   public function edit(Task $task, Lecture $lecture)
    {
-       return view('tasks.edit')->with(['task' => $task]);
+       return view('tasks.edit')->with([
+           'task' => $task,
+           'lectures' => $lecture->get(),
+           ]);
    }
    
    public function detail(Task $task)
