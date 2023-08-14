@@ -21,7 +21,7 @@
                 </div>
                 @endforeach
             </div>
-            <form action="/chats" method="POST">
+            <form action="/chats/{{ $group->id }}/{{ $user->id }}" method="POST">
                 @csrf
                 <div class="create_chat">
                     <h3>メッセージを入力</h3>
