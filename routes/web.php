@@ -22,16 +22,16 @@ use App\Http\Controllers\ChatController;
 Route::controller(LectureController::class)->middleware(['auth'])->group(function(){
     Route::get('/', 'home');
     Route::post('/lectures', 'store');
-    Route::get('/lectures/add', 'add')->name('lecture_add');
+    Route::get('/lectures/add', 'add');
     Route::get('/lectures/{lecture}/edit', 'edit');
     Route::put('/lectures/{lecture}', 'update');
-    Route::get('/lectures/{lecture}/detail', 'detail')->name('detail');
+    Route::get('/lectures/{lecture}/detail', 'detail');
 });
 
 Route::controller(TaskController::class)->middleware(['auth'])->group(function(){
     Route::post('/tasks', 'store');
     Route::get('/tasks/index', 'index')->name('task_index');
-    Route::get('/tasks/add', 'add')->name('task_add');
+    Route::get('/tasks/add', 'add');
     Route::get('/tasks/{task}/edit', 'edit');
     Route::put('/tasks/{task}', 'update');
     Route::get('/tasks/{task}/detail', 'detail');
@@ -42,8 +42,8 @@ Route::controller(CalendarController::class)->middleware(['auth'])->group(functi
 });
 
 Route::controller(GroupController::class)->middleware(['auth'])->group(function(){
-    Route::get('/groups/{user}/index', 'index')->name('index_group');
-    Route::get('/groups/make', 'make')->name('make');
+    Route::get('/groups/{user}/index', 'index')->name('group_index');
+    Route::get('/groups/make', 'make');
     Route::post('/groups', 'store');
     Route::get('/groups/{group}/edit', 'edit');
     Route::put('/groups/{group}', 'update');
