@@ -14,6 +14,14 @@
         <body>
             <form action="/tasks" method="POST">
                 @csrf
+                <div class="select_lecture">
+                    <h3>授業の選択</h3>
+                    <select name="task[lecture_id]">
+                        @foreach($lectures as $lecture)
+                            <option value="{{ $lecture->id }}">{{ $lecture->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <div class="create_name">
                     <h3>課題名</h3>
                     <div class="insert_name">
