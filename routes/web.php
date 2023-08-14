@@ -48,12 +48,12 @@ Route::controller(GroupController::class)->middleware(['auth'])->group(function(
     Route::get('/groups/{group}/edit', 'edit');
     Route::put('/groups/{group}', 'update');
     Route::get('/groups/invite', 'invite');
-    Route::get('/groups/{group}/chat', 'chat');
+    Route::get('/groups/{group}/chat/{user}', 'chat');
     
 });
 
 Route::controller(ChatController::class)->middleware(['auth'])->group(function(){
-    Route::post('/chats', 'store');
+    Route::post('/chats/{group}/{user}', 'store');
 });
 
 Route::get('/dashboard', function () {
