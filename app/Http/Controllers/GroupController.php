@@ -30,7 +30,7 @@ class GroupController extends Controller
     {
         $input_group = $request['group'];
         $input_users = $user->id;
-        $group->fill($input_group)->save();
+        $group->fill($input_group)->save(); 
         $group->users()->attach($input_users);        
         return redirect('/groups/' . $group->id . '/chat/' . $user->id);
     }

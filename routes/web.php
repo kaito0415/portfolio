@@ -21,8 +21,8 @@ use App\Http\Controllers\ChatController;
 
 Route::controller(LectureController::class)->middleware(['auth'])->group(function(){
     Route::get('/', 'home');
-    Route::post('/lectures', 'store');
-    Route::get('/lectures/add', 'add');
+    Route::get('/lectures/add/{user}', 'add');
+    Route::post('/lectures/{user}', 'store');
     Route::get('/lectures/{lecture}/edit', 'edit');
     Route::put('/lectures/{lecture}', 'update');
     Route::get('/lectures/{lecture}/detail', 'detail');

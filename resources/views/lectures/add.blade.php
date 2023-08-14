@@ -12,7 +12,7 @@
             <h1 class="title">授業の追加</h1>
         </x-slot>
         <body>
-            <form action="/lectures" method="POST">
+            <form action="/lectures/{{ $user->id }}" method="POST">
                 @csrf
                 <div class="create_name">
                     <h3>授業名</h3>
