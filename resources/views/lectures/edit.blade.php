@@ -9,10 +9,9 @@
     
     <x-app-layout>
         <x-slot name="header">
-            
+            <h1 class="title">授業の編集</h1>
         </x-slot>
         <body>
-            <h1 class="title">授業の編集</h1>
             <form action="/lectures/{{ $lecture->id }}" method="POST">
                 @csrf
                 @method('PUT')

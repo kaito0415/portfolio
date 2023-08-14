@@ -9,10 +9,9 @@
     
     <x-app-layout>
         <x-slot name="header">
-            
+            <h1 class="title">授業の追加</h1>
         </x-slot>
         <body>
-            <h1 class="title">授業の追加</h1>
             <form action="/lectures" method="POST">
                 @csrf
                 <div class="create_name">

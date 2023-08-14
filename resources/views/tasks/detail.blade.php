@@ -9,7 +9,7 @@
     
     <x-app-layout>
         <x-slot name="header">
-            
+            <h1 class="title">課題詳細</h1>
         </x-slot>
         <body>
             <div class="detail">

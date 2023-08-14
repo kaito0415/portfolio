@@ -9,10 +9,9 @@
     
     <x-app-layout>
         <x-slot name="header">
-            
+            <h1 class="title">課題の編集</h1>
         </x-slot>
         <body>
-            <h1 class="title">課題の追加</h1>
             <form action="/tasks/{{ $task->id }}" method="POST">
                 @csrf
                 @method('PUT')
