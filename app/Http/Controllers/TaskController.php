@@ -19,9 +19,12 @@ class TaskController extends Controller
            ]);
    }
     
-   public function add(Lecture $lecture) 
+   public function add(Lecture $lecture, User $user) 
    {
-       return view('tasks.add')->with(['lectures' => $lecture->get()]);
+       return view('tasks.add')->with([
+           'lectures' => $lecture->get(),
+           'user' => $user,
+           ]);
    }
    
    public function store(TaskRequest $request, Task $task)

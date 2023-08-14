@@ -18,7 +18,7 @@
                     <x-nav-link href="/">
                         {{ __('時間割へ') }}
                     </x-nav-link>
-                    <x-nav-link href="/tasks/index{{ Auth::user()->id }}">
+                    <x-nav-link href="/tasks/index/{{ Auth::user()->id }}">
                         {{ __('課題の一覧へ') }}
                     </x-nav-link>
                     <x-nav-link href="/groups/{{ Auth::user()->id }}/index">
