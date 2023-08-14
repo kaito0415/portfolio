@@ -13,7 +13,7 @@
         </x-slot>
         <body>
             <div class="list_group">
-                @foreach($groups as $group)
+                @foreach($user->groups as $group)
                     <h3 class="group_name">{{ $group->name }}</h3>
                     <a href="/groups/{{ $group->id }}/chat/{{ $user->id }}" class="trans_chat">{{ $group->name }}のチャットへ</a>
                 @endforeach

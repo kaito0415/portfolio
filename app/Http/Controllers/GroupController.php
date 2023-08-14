@@ -28,8 +28,10 @@ class GroupController extends Controller
     
     public function store(GroupRequest $request, Group $group, User $user)
     {
-        $input = $request['group'];
-        $group->fill($input)->save();
+        $input_group = $request['group'];
+        $input_users = $user->id;
+        $group->fill($input_group)->save();
+        $group->users()->attach($input_users);        
         return redirect('/groups/' . $group->id . '/chat/' . $user->id);
     }
     
