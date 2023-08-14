@@ -9,7 +9,7 @@
     
     <x-app-layout>
         <x-slot name="header">
-            
+            <h1 class="group_name">{{ $group->name }}</h1>
         </x-slot>
         <body>
             <div class="chats_log">
