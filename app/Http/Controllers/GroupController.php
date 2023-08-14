@@ -4,10 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Group;
+use App\Models\User;
 use App\Http\Requests\GroupRequest;
 
 class GroupController extends Controller
 {
+    
+    public function index(Group $group, User $user)
+    {
+        return view('groups.index')->with([
+            'groups' => $group,
+            'user' => $user->get(),
+            ]);
+    }
     
     public function make(Group $group)
     {
