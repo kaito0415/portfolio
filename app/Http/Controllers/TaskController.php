@@ -5,14 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Task;
 use App\Models\Lecture;
+use App\Models\User;
 use App\Http\Requests\TaskRequest;
 
 class TaskController extends Controller
 {
     
-   public function index(Task $task)
+   public function index(Task $task, User $user)
    {
-       return view('tasks.index')->with(['tasks' => $task]);
+       return view('tasks.index')->with([
+           'tasks' => $task,
+           'user' => $user,
+           ]);
    }
     
    public function add(Lecture $lecture) 

@@ -13,9 +13,11 @@
         </x-slot>
         <body>
             <div class="list_task">
-                @foreach($tasks as $task)
-                    <h3 class="Task_name">{{ $task->name }}</h3>
-                    <a href="/tasks/{{ $task->id }}/detail" class="trans_detail">課題詳細へ</a>
+                @foreach($user->lectures as $lecture)
+                    @foreach($lecture->tasks as $task)
+                        <h3 class="task_name">{{ $task->name }}</h3>
+                        <a href="/tasks/{{ $task->id }}/detail" class="trans_detail">課題詳細へ</a>
+                    @endforeach
                 @endforeach
             </div>
             <div class="add">
