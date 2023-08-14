@@ -15,11 +15,11 @@
             <div class="list_group">
                 @foreach($groups as $group)
                     <h3 class="group_name">{{ $group->name }}</h3>
-                    <a href="/groups/{{ $group->id }}/chat" class="trans_chat">{{ $group->name }}のチャットへ</a>
+                    <a href="/groups/{{ $group->id }}/chat/{{ $user->id }}" class="trans_chat">{{ $group->name }}のチャットへ</a>
                 @endforeach
             </div>
             <div class="add">
-                <a href="/groups/name">新規グループ作成</a>
+                <a href="/groups/make/{{ $user->id }}">新規グループ作成</a>
             </div>
         </body>
     </x-app-layout>

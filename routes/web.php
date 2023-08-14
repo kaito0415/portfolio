@@ -43,10 +43,10 @@ Route::controller(CalendarController::class)->middleware(['auth'])->group(functi
 
 Route::controller(GroupController::class)->middleware(['auth'])->group(function(){
     Route::get('/groups/{user}/index', 'index')->name('group_index');
-    Route::get('/groups/make', 'make');
-    Route::post('/groups', 'store');
-    Route::get('/groups/{group}/edit', 'edit');
-    Route::put('/groups/{group}', 'update');
+    Route::get('/groups/make/{user}', 'make');
+    Route::post('/groups/{user}', 'store');
+    Route::get('/groups/{group}/edit/{user}', 'edit');
+    Route::put('/groups/{group}/{user}', 'update');
     Route::get('/groups/invite', 'invite');
     Route::get('/groups/{group}/chat/{user}', 'chat');
     

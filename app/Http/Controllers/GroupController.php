@@ -14,32 +14,38 @@ class GroupController extends Controller
     {
         return view('groups.index')->with([
             'groups' => $group,
-            'user' => $user->get(),
+            'user' => $user,
             ]);
     }
     
-    public function make(Group $group)
+    public function make(Group $group, User $user)
     {
-        return view('groups.make')->with(['groups' => $group]);
+        return view('groups.make')->with([
+            'groups' => $group,
+            'user' => $user,
+            ]);
     }
     
-    public function store(GroupRequest $request, Group $group)
+    public function store(GroupRequest $request, Group $group, User $user)
     {
         $input = $request['group'];
         $group->fill($input)->save();
-        return redirect('/groups/' . $group->id . '/chat');
+        return redirect('/groups/' . $group->id . '/chat/' . $user->id);
     }
     
-    public function edit(Group $group)
+    public function edit(Group $group, User $user)
     {
-        return view('groups.edit')->with(['group' => $group]);
+        return view('groups.edit')->with([
+            'group' => $group,
+            'user' => $user,
+            ]);
     }
     
-    public function update(GroupRequest $request, Group $group)
+    public function update(GroupRequest $request, Group $group, User $user)
     {
         $input_group = $request['group'];
         $group->fill($input_group)->save();
-        return redirect('/groups/' . $group->id . '/chat');
+        return redirect('/groups/' . $group->id . '/chat/' . $user->id);
     }
     
     public function invite(Group $group)
