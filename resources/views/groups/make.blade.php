@@ -9,10 +9,9 @@
     
     <x-app-layout>
         <x-slot name="header">
-            
+            <h1 class="title">グループ作成</h1>
         </x-slot>
         <body>
-            <h1 class="title">グループ作成</h1>
             <form action="/groups" method="POST">
                 @csrf
                 <div class="create_name">

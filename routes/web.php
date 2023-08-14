@@ -20,38 +20,38 @@ use App\Http\Controllers\ChatController;
 */
 
 Route::controller(LectureController::class)->middleware(['auth'])->group(function(){
-    Route::get('/', 'home')->name('home');
-    Route::post('/lectures', 'store')->name('store');
-    Route::get('/lectures/add', 'add')->name('add');
-    Route::get('/lectures/{lecture}/edit', 'edit')->name('edit');
-    Route::put('/lectures/{lecture}', 'update')->name('update');
+    Route::get('/', 'home');
+    Route::post('/lectures', 'store');
+    Route::get('/lectures/add', 'add')->name('lecture_add');
+    Route::get('/lectures/{lecture}/edit', 'edit');
+    Route::put('/lectures/{lecture}', 'update');
     Route::get('/lectures/{lecture}/detail', 'detail')->name('detail');
 });
 
 Route::controller(TaskController::class)->middleware(['auth'])->group(function(){
-    Route::post('/tasks', 'store')->name('store');
-    Route::get('/tasks/{task}/add', 'add')->name('add');
-    Route::get('/tasks/{task}/edit', 'edit')->name('edit');
-    Route::put('/tasks/{task}', 'update')->name('update');
-    Route::get('/tasks/{task}/detail', 'detail')->name('detail');
+    Route::post('/tasks', 'store');
+    Route::get('/tasks/add', 'add')->name('task_add');
+    Route::get('/tasks/{task}/edit', 'edit');
+    Route::put('/tasks/{task}', 'update');
+    Route::get('/tasks/{task}/detail', 'detail');
 });
 
 Route::controller(CalendarController::class)->middleware(['auth'])->group(function(){
-    Route::get('/calendars', 'home')->name('home');
+    Route::get('/calendars', 'calendars')->name('calendars');
 });
 
 Route::controller(GroupController::class)->middleware(['auth'])->group(function(){
     Route::get('/groups/make', 'make')->name('make');
-    Route::post('/groups', 'store')->name('store');
-    Route::get('/groups/{group}/edit', 'edit')->name('edit');
-    Route::put('/groups/{group}', 'update')->name('update');
-    Route::get('/groups/invite', 'invite')->name('invite');
-    Route::get('/groups/{group}/chat', 'chat')->name('chat');
+    Route::post('/groups', 'store');
+    Route::get('/groups/{group}/edit', 'edit');
+    Route::put('/groups/{group}', 'update');
+    Route::get('/groups/invite', 'invite');
+    Route::get('/groups/{group}/chat', 'chat');
     
 });
 
 Route::controller(ChatController::class)->middleware(['auth'])->group(function(){
-    Route::post('/chats', 'store')->name('store');
+    Route::post('/chats', 'store');
 });
 
 Route::get('/dashboard', function () {

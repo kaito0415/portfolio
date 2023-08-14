@@ -9,7 +9,7 @@
     
     <x-app-layout>
         <x-slot name="header">
-            
+            <h1 class="title">時間割</h1>
         </x-slot>
         <body>
             <div class="timetable">

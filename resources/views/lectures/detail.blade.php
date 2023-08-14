@@ -9,7 +9,7 @@
     
     <x-app-layout>
         <x-slot name="header">
-            
+            <h1 class="title">授業の詳細</h1>
         </x-slot>
         <body>
             <h1 class="name">
