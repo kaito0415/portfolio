@@ -18,14 +18,11 @@
                     <x-nav-link href="/">
                         {{ __('時間割へ') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('lecture_add')" :active="request()->routeIs('lecture_add')">
-                        {{ __('授業の追加へ') }}
+                    <x-nav-link :href="route('task_index')" :active="request()->routeIs('task_index')">
+                        {{ __('課題の一覧へ') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('task_add')" :active="request()->routeIs('task_add')">
-                        {{ __('課題の追加へ') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('make')" :active="request()->routeIs('make')">
-                        {{ __('グループの作成へ') }}
+                    <x-nav-link href="/groups/{{ Auth::user()->id }}/index">
+                        {{ __('グループの一覧へ') }}
                     </x-nav-link>
                 </div>
             </div>
