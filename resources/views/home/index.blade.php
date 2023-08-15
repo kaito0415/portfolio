@@ -1,3 +1,29 @@
+<?php
+
+$timetable = '';
+
+for($period = 1; $period < 7; $period++){
+    $timetable .= '<tr><th class="period">' . $period . '時間目</th>';
+    
+    for($day_of_week = 0; $day_of_week < 6; $day_of_week++){
+        
+        foreach($user->lectures as $lecture){
+        
+            if($lecture->day_of_week  == $day_of_week && $lecture->period == $period){
+                $timetable .= '<th><a href="/lectures/' . $lecture->id . '/detail">' . $lecture->name . '</a><br></br><p>' . $lecture->classroom . '</p></th>';
+                break;
+            }
+            
+            $timetable .= '<th></th>';
+            
+        }
+    
+    }
+    $timetable .= '</tr>';
+
+}
+
+?>
 <!DOCTYPE html>
 <html>
     
@@ -13,133 +39,26 @@
         </x-slot>
         <body>
             <div class="timetable">
-                <div class="monday_lecture">
-                    <h1>月曜日</h1>
-                    <div class="first_period">
-                        <h3>１時間目</h3>
+                <table class="borderd">
+                    <div class="day_of_week">
+                        <tr>
+                            <th></th>
+                            <th>月曜日</th>
+                            <th>火曜日</th>
+                            <th>水曜日</th>
+                            <th>木曜日</th>
+                            <th>金曜日</th>
+                            <th>土曜日</th>
+                        </tr>
                     </div>
-                    <div class="second_period">
-                        <h3>２時間目</h3>
+                    <div class="timetable">
+                        <?php
+                            echo $timetable;
+                        ?>
                     </div>
-                    <div class="third_period">
-                        <h3>３時間目</h3>
-                    </div>
-                    <div class="fourth_period">
-                        <h3>４時間目</h3>
-                    </div>
-                    <div class="fifth_period">
-                        <h3>５時間目</h3>
-                    </div>
-                    <div class="sixth_period">
-                        <h3>６時間目</h3>
-                    </div>
-                </div>
-                <div class="tuesday_lecture">
-                    <h1>火曜日</h1>
-                    <div class="first_period">
-                        <h3>１時間目</h3>
-                    </div>
-                    <div class="second_period">
-                        <h3>２時間目</h3>
-                    </div>
-                    <div class="third_period">
-                        <h3>３時間目</h3>
-                    </div>
-                    <div class="fourth_period">
-                        <h3>４時間目</h3>
-                    </div>
-                    <div class="fifth_period">
-                        <h3>５時間目</h3>
-                    </div>
-                    <div class="sixth_period">
-                        <h3>６時間目</h3>
-                    </div>
-                </div>
-                <div class="wednesday_lecture">
-                    <h1>水曜日</h1>
-                    <div class="first_period">
-                        <h3>１時間目</h3>
-                    </div>
-                    <div class="second_period">
-                        <h3>２時間目</h3>
-                    </div>
-                    <div class="third_period">
-                        <h3>３時間目</h3>
-                    </div>
-                    <div class="fourth_period">
-                        <h3>４時間目</h3>
-                    </div>
-                    <div class="fifth_period">
-                        <h3>５時間目</h3>
-                    </div>
-                    <div class="sixth_period">
-                        <h3>６時間目</h3>
-                    </div>
-                </div>
-                <div class="thursday_lecture">
-                    <h1>木曜日</h1>
-                    <div class="first_period">
-                        <h3>１時間目</h3>
-                    </div>
-                    <div class="second_period">
-                        <h3>２時間目</h3>
-                    </div>
-                    <div class="third_period">
-                        <h3>３時間目</h3>
-                    </div>
-                    <div class="fourth_period">
-                        <h3>４時間目</h3>
-                    </div>
-                    <div class="fifth_period">
-                        <h3>５時間目</h3>
-                    </div>
-                    <div class="sixth_period">
-                        <h3>６時間目</h3>
-                    </div>
-                </div>
-                <div class="friday_lecture">
-                    <h1>金曜日</h1>
-                    <div class="first_period">
-                        <h3>１時間目</h3>
-                    </div>
-                    <div class="second_period">
-                        <h3>２時間目</h3>
-                    </div>
-                    <div class="third_period">
-                        <h3>３時間目</h3>
-                    </div>
-                    <div class="fourth_period">
-                        <h3>４時間目</h3>
-                    </div>
-                    <div class="fifth_period">
-                        <h3>５時間目</h3>
-                    </div>
-                    <div class="sixth_period">
-                        <h3>６時間目</h3>
-                    </div>
-                </div>
-                <div class="saturday_lecture">
-                    <h1>土曜日</h1>
-                    <div class="first_period">
-                        <h3>１時間目</h3>
-                    </div>
-                    <div class="second_period">
-                        <h3>２時間目</h3>
-                    </div>
-                    <div class="third_period">
-                        <h3>３時間目</h3>
-                    </div>
-                    <div class="fourth_period">
-                        <h3>４時間目</h3>
-                    </div>
-                    <div class="fifth_period">
-                        <h3>５時間目</h3>
-                    </div>
-                    <div class="sixth_period">
-                        <h3>６時間目</h3>
-                    </div>
-                </div>
-            </div>
+                </table>
+                <a href="/lectures/add/{{ $user->id }}">授業の追加</a>
+            </div>    
         </body>
     </x-app-layout>
 </html>

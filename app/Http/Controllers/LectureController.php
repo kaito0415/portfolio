@@ -9,9 +9,12 @@ use App\Http\Requests\LectureRequest;
 
 class LectureController extends Controller
 {
-    public function home(Lecture $lecture)
+    public function home(Lecture $lecture, User $user)
     {
-        return view('home.index')->with(['lectures' => $lecture->get()]);
+        return view('home.index')->with([
+            'lectures' => $lecture->get(),
+            'user' => $user
+            ]);
     }
     
     public function add(User $user)
