@@ -38,7 +38,7 @@ Route::controller(TaskController::class)->middleware(['auth'])->group(function()
 });
 
 Route::controller(CalendarController::class)->middleware(['auth'])->group(function(){
-    Route::get('/calendars', 'calendars')->name('calendars');
+    Route::get('/calendars', 'home')->name('calendars');
 });
 
 Route::controller(GroupController::class)->middleware(['auth'])->group(function(){
