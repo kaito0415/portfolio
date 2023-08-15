@@ -15,8 +15,8 @@
             <div class="list_group">
                 @foreach($user->groups as $group)
                     <h3 class="group_name">{{ $group->name }}</h3>
-                    <p href="/groups/{{ $group->id }}/chat/{{ $user->id }}" class="trans_chat">チャットへ</p>
-                    <p href="/groups/{{ $group->id }}/edit/{{ $user->id }}" class="trans_edit">グループ名の修正</p>
+                    <a href="/groups/{{ $group->id }}/chat/{{ $user->id }}" class="trans_chat">チャットへ</a>
+                    <a href="/groups/{{ $group->id }}/edit/{{ $user->id }}" class="trans_edit">グループ名の修正</a>
                 @endforeach
             </div>
             <div class="add">

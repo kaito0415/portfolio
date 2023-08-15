@@ -15,13 +15,13 @@
             <div class="list_task">
                 @foreach($user->lectures as $lecture)
                     @foreach($lecture->tasks as $task)
-                        <h3 class="task_name">{{ $task->name }}</h3>
+                        <h3 class="task_name">{{ $task->name }}  期限：{{ $task->limit }}</h3>
                         <a href="/tasks/{{ $task->id }}/detail" class="trans_detail">課題詳細へ</a>
                     @endforeach
                 @endforeach
             </div>
             <div class="add">
-                <a href="/taksk/add">新規課題作成</a>
+                <a href="/tasks/add">新規課題作成</a>
             </div>
         </body>
     </x-app-layout>
