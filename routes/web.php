@@ -20,7 +20,7 @@ use App\Http\Controllers\ChatController;
 */
 
 Route::controller(LectureController::class)->middleware(['auth'])->group(function(){
-    Route::get('/', 'home');
+    Route::get('/lectures/{user}', 'home');
     Route::get('/lectures/add/{user}', 'add');
     Route::post('/lectures/{user}', 'store');
     Route::get('/lectures/{lecture}/edit', 'edit');
