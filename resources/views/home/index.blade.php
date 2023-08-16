@@ -14,10 +14,10 @@ for($period = 1; $period < 7; $period++){
                 break;
             }
             
-            $timetable .= '<th></th>';
-            
         }
-    
+        
+        $timetable .= '<th></th>';
+        
     }
     $timetable .= '</tr>';
 

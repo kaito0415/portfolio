@@ -1,3 +1,28 @@
+<?php
+
+switch($lecture->day_of_week){
+    case 0:
+        $day_of_week = '月曜日';
+        break;
+    case 1:
+        $day_of_week = '火曜日';
+        break;
+    case 2:
+        $day_of_week = '水曜日';
+        break;
+    case 3:
+        $day_of_week = '木曜日';
+        break;
+    case 4:
+        $day_of_week = '金曜日';
+        break;
+    case 5:
+        $day_of_week = '土曜日';
+        break;
+}
+    
+
+?>
 <!DOCTYPE html>
 <html>
     
@@ -20,7 +45,7 @@
                     <p>{{ $lecture->period }}時限目</p>
                 </div>
                 <div class="detail_day_of_week">
-                    <p>{{ $lecture->period }}</p>
+                    <p><?php echo $day_of_week ?></p>
                 </div>
                 <div class="detail_classroom">
                     <p>{{ $lecture->classroom }}</p>
