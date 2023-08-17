@@ -44,6 +44,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
+    public function getMyTimeTable(int $period)
+    {
+        return $this->lectures()->where('period', $period)->get();
+    }
+    
     public function lectures()
     {
         return $this->belongsToMany(Lecture::class);

@@ -9,10 +9,15 @@ use App\Http\Requests\LectureRequest;
 
 class LectureController extends Controller
 {
-    public function home(Lecture $lecture, User $user)
+    public function home(User $user)
     {
         return view('home.index')->with([
-            'lectures' => $lecture->get(),
+            'first_lectures' => $user->getMyTimeTable(1),
+            'second_lectures' => $user->getMyTimeTable(2),
+            'third_lectures' => $user->getMyTimeTable(3),
+            'fourth_lectures' => $user->getMyTimeTable(4),
+            'fifth_lectures' => $user->getMyTimeTable(5),
+            'sixth_lectures' => $user->getMyTimeTable(6),
             'user' => $user
             ]);
     }
