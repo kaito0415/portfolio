@@ -30,6 +30,8 @@ class LectureController extends Controller
     public function store(LectureRequest $request, Lecture $lecture, User $user)
     {
         $input_lecture = $request['lecture'];
+        $input_lecture["period"] = $request->p;
+        $input_lecture["day_of_week"] = $request->d;
         $input_users = $user->id;
         $lecture->fill($input_lecture)->save();
         $lecture->users()->attach($input_users);
