@@ -17,6 +17,24 @@ class Lecture extends Model
         'teacher',
         'credit',
         ];
+        
+    public function formatDayOfWeek(int $day_of_week)
+    {
+        switch($day_of_week){
+        case 0:
+            return '月曜日';
+        case 1:
+            return '火曜日';
+        case 2:
+            return '水曜日';
+        case 3:
+            return '木曜日';
+        case 4:
+            return '金曜日';
+        case 5:
+            return '土曜日';
+        }
+    }
     
     public function tasks()
     {
