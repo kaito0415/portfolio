@@ -22,9 +22,11 @@ class LectureController extends Controller
             ]);
     }
     
-    public function add(User $user)
+    public function add(User $user, Lecture $lecture, Request $request)
     {
-        return view('lectures.add')->with(['user' => $user]);
+        return view('lectures.add')->with([
+            'user' => $user,
+            'day_of_week' => $lecture->formatDayOfWeek($request->d)]);
     }
     
     public function store(LectureRequest $request, Lecture $lecture, User $user)
@@ -48,11 +50,17 @@ class LectureController extends Controller
     
     public function edit(Lecture $lecture)
     {
-        return view('lectures.edit')->with(['lecture' => $lecture]);
+        return view('lectures.edit')->with([
+            'lecture' => $lecture,
+            'day_of_week' => $lecture->formatDayOfWeek($lecture->day_of_week),
+            ]);
     }
     
     public function detail(Lecture $lecture)
     {
-        return view('lectures.detail')->with(['lecture' => $lecture]);
+        return view('lectures.detail')->with([
+            'lecture' => $lecture,
+            'day_of_week' => $lecture->formatDayOfWeek($lecture->day_of_week),
+            ]);
     }
 }

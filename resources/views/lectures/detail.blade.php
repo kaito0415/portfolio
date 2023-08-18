@@ -1,28 +1,3 @@
-<?php
-
-switch($lecture->day_of_week){
-    case 0:
-        $day_of_week = '月曜日';
-        break;
-    case 1:
-        $day_of_week = '火曜日';
-        break;
-    case 2:
-        $day_of_week = '水曜日';
-        break;
-    case 3:
-        $day_of_week = '木曜日';
-        break;
-    case 4:
-        $day_of_week = '金曜日';
-        break;
-    case 5:
-        $day_of_week = '土曜日';
-        break;
-}
-    
-
-?>
 <!DOCTYPE html>
 <html>
     
@@ -35,27 +10,25 @@ switch($lecture->day_of_week){
     <x-app-layout>
         <x-slot name="header">
             <h1 class="title">授業の詳細</h1>
+            <h1 class="time_of_week">{{ $day_of_week }}{{ $lecture->period }}時間目</h1>
         </x-slot>
         <body>
             <h1 class="name">
                 {{ $lecture->name }}
             </h1>
             <div class="detail">
-                <div class="detail_period">
-                    <p>{{ $lecture->period }}時限目</p>
-                </div>
-                <div class="detail_day_of_week">
-                    <p><?php echo $day_of_week ?></p>
-                </div>
                 <div class="detail_classroom">
                     <p>{{ $lecture->classroom }}</p>
+                </div>
+                <div class="detail_teacher">
+                    <p>{{ $lecture->teacher }}</p>
                 </div>
                 <div class="detail_credit">
                     <p>{{ $lecture->credit }}単位</p>
                 </div>
             </div>
             <div class="edit">
-                <a href="/lectures/{{ $lecture->id }}/edit" class="lecture_edit">授業内容の編集</a>
+                <a href="/lectures/{{ $lecture->id }}/edit?p={{ $lecture->period }}&d={{ $lecture->day_of_week }}" class="lecture_edit">授業内容の編集</a>
             </div>
         </body>
     </x-app-layout>

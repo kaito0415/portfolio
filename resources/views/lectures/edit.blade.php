@@ -10,6 +10,7 @@
     <x-app-layout>
         <x-slot name="header">
             <h1 class="title">授業の編集</h1>
+            <h1 class="time_of_week">{{ $day_of_week }}{{ $_GET['p'] }}時間目</h1>
         </x-slot>
         <body>
             <form action="/lectures/{{ $lecture->id }}" method="POST">
@@ -19,32 +20,6 @@
                     <h3>授業名</h3>
                     <div class="insert_name">
                         <input type="text" name="lecture[name]" placeholder="授業名" value="{{ $lecture->name }}" />
-                    </div>
-                </div>
-                <div class="create_period">
-                    <h3>時限数入力</h3>
-                    <div class="insert_period">
-                        <select name="lecture[period]" value="{{ $lecture->period }}">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="create_day_of_week">
-                    <h3>曜日選択</h3>
-                    <div class="isert_day_of_week">
-                        <select name="lecture[day_of_week]" value="{{ $lecture->day_of_week }}">
-                            <option value="0">月曜日</option>
-                            <option value="1">火曜日</option>
-                            <option value="2">水曜日</option>
-                            <option value="3">木曜日</option>
-                            <option value="4">金曜日</option>
-                            <option value="5">土曜日</option>
-                        </select>
                     </div>
                 </div>
                 <div class="create_classroom">

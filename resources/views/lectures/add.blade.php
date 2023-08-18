@@ -10,6 +10,7 @@
     <x-app-layout>
         <x-slot name="header">
             <h1 class="title">授業の追加</h1>
+            <h1 class="time_of_week">{{ $day_of_week }}{{ $_GET['p'] }}時間目</h1>
         </x-slot>
         <body>
             <form action="/lectures/{{ $user->id }}?p={{ $_GET['p'] }}&d={{ $_GET['d'] }}" method="POST">
