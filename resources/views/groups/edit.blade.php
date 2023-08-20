@@ -21,6 +21,13 @@
                     <div class="insert_name">
                         <input type="text" name="group[name]" placeholder="グループ名" value="{{ $group->name }}" />
                     </div>
+                </div>
+                <div class="create_password">
+                    <h3>パスワードを編集</h3>
+                    <div class="insert_password">
+                        <input type="text" name="group[password]" placeholder="パスワード" value="{{ $group->password }}" />
+                    </div>
+                </div>
                 <div class="submit_button">
                     <button value="submit">保存</button>
                 </div>

@@ -9,7 +9,20 @@ class Group extends Model
 {
     use HasFactory;
     
-    protected $fillable = ['name'];
+    protected $fillable = [
+        'name',
+        'password',
+        ];
+    
+    public function confirm(int $user_id, int $group_id, string $check_password, string $collate_password, )
+    {
+        if($check_password == $collate_password){
+            Group::find($group_id)->users()->attach($user_id);
+            return "/groups/$group_id/chat/$user_id";
+        }else{
+            return "/groups/entry/$user_id?miss=0";
+        }
+    }
     
     public function users()
     {
