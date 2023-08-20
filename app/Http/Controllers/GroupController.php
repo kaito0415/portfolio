@@ -35,6 +35,18 @@ class GroupController extends Controller
         return redirect('/groups/' . $group->id . '/chat/' . $user->id);
     }
     
+    public function entry(User $user)
+    {
+        return view('groups.entry')->with(['user' => $user]);
+    }
+    
+    public function check(Request $request, Group $group, User $user)
+    {
+        $find_group = Group::find($request->entry_id);
+        $result = $group->confirm($request->user, $request->entry_id, $request->entry_password, $find_group->password);
+        return redirect($result);
+    }
+    
     public function edit(Group $group, User $user)
     {
         return view('groups.edit')->with([
@@ -48,6 +60,11 @@ class GroupController extends Controller
         $input_group = $request['group'];
         $group->fill($input_group)->save();
         return redirect('/groups/' . $group->id . '/chat/' . $user->id);
+    }
+    
+    public function detail(Group $group)
+    {
+        return view('groups.detail')->with(['group' => $group]);
     }
     
     public function invite(Group $group)

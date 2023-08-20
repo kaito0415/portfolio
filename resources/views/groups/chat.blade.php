@@ -10,6 +10,7 @@
     <x-app-layout>
         <x-slot name="header">
             <h1 class="group_name">{{ $group->name }}</h1>
+            <a href="/groups/detail/{{ $group->id }}">グループ詳細へ</a>
         </x-slot>
         <body>
             <div class="chats_log">
