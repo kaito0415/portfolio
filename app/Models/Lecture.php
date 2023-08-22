@@ -36,6 +36,16 @@ class Lecture extends Model
         }
     }
     
+    public function confirm(int $period, int $day_of_week, int $user_id, Lecture $lecture)
+    {
+        if($period == $lecture->period && $day_of_week == $lecture->day_of_week){
+            $lecture->users()->attach($user_id);
+            return "/lectures/$lecture->id/detail";
+        }else{
+            return "/lectures/entry/$user_id?p=$period&d=$day_of_week&miss=0";
+        }
+    }
+    
     public function tasks()
     {
         return $this->hasMany(Task::class);

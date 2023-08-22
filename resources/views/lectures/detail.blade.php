@@ -26,6 +26,9 @@
                 <div class="detail_credit">
                     <p>{{ $lecture->credit }}単位</p>
                 </div>
+                <div class="detail_id">
+                    <p>授業ID：{{ $lecture->id }}</p>
+                </div>
             </div>
             <div class="edit">
                 <a href="/lectures/{{ $lecture->id }}/edit?p={{ $lecture->period }}&d={{ $lecture->day_of_week }}" class="lecture_edit">授業内容の編集</a>
