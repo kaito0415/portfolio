@@ -40,7 +40,7 @@ class Lecture extends Model
     {
         if($period == $lecture->period && $day_of_week == $lecture->day_of_week){
             $lecture->users()->attach($user_id);
-            return "/lectures/$lecture->id/detail";
+            return "/lectures/$lecture->id/detail?user=$user_id";
         }else{
             return "/lectures/entry/$user_id?p=$period&d=$day_of_week&miss=0";
         }

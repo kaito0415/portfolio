@@ -38,7 +38,7 @@ class LectureController extends Controller
         $input_users = $user->id;
         $lecture->fill($input_lecture)->save();
         $lecture->users()->attach($input_users);
-        return redirect('/lectures/' . $lecture->id . '/detail');
+        return redirect('/lectures/' . $lecture->id . '/detail?user=' . $user->id);
     }
     
     public function entry(Request $request, User $user, Lecture $lecture)
@@ -61,7 +61,7 @@ class LectureController extends Controller
         $input_lecture = $request['lecture'];
         $lecture->fill($input_lecture)->save();
         
-        return redirect('/lectures/' . $lecture->id . '/detail');
+        return redirect('/lectures/' . $lecture->id . '/detail?user=' . $request->user);
     }
     
     public function edit(Lecture $lecture)
@@ -78,5 +78,11 @@ class LectureController extends Controller
             'lecture' => $lecture,
             'day_of_week' => $lecture->formatDayOfWeek($lecture->day_of_week),
             ]);
+    }
+    
+    public function delete(Request $request, Lecture $lecture)
+    {
+        $lecture->users()->detach($request->user);
+        return redirect("/lectures/" . $request->user);
     }
 }

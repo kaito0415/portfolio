@@ -28,6 +28,7 @@ Route::controller(LectureController::class)->middleware(['auth'])->group(functio
     Route::get('/lectures/{lecture}/edit', 'edit');
     Route::put('/lectures/{lecture}', 'update');
     Route::get('/lectures/{lecture}/detail', 'detail');
+    Route::delete('/lectures/{lecture}', 'delete');
 });
 
 Route::controller(TaskController::class)->middleware(['auth'])->group(function(){

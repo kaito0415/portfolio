@@ -31,7 +31,14 @@
                 </div>
             </div>
             <div class="edit">
-                <a href="/lectures/{{ $lecture->id }}/edit?p={{ $lecture->period }}&d={{ $lecture->day_of_week }}" class="lecture_edit">授業内容の編集</a>
+                <a href="/lectures/{{ $lecture->id }}/edit?user={{ $_GET['user'] }}&p={{ $lecture->period }}&d={{ $lecture->day_of_week }}" class="lecture_edit">授業内容の編集</a>
+            </div>
+            <div class="delete">
+                <form action="/lectures/{{ $lecture->id }}?user={{ $_GET['user'] }}" id="form_{{ $lecture->id }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button onclick="deletePost({{ $lecture->id }})">授業の削除</button> 
+                </form>
             </div>
         </body>
     </x-app-layout>
