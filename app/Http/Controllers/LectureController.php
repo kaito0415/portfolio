@@ -26,7 +26,8 @@ class LectureController extends Controller
     {
         return view('lectures.add')->with([
             'user' => $user,
-            'day_of_week' => $lecture->formatDayOfWeek($request->d)]);
+            'day_of_week' => $lecture->formatDayOfWeek($request->d),
+            ]);
     }
     
     public function store(LectureRequest $request, Lecture $lecture, User $user)
@@ -38,6 +39,21 @@ class LectureController extends Controller
         $lecture->fill($input_lecture)->save();
         $lecture->users()->attach($input_users);
         return redirect('/lectures/' . $lecture->id . '/detail');
+    }
+    
+    public function entry(Request $request, User $user, Lecture $lecture)
+    {
+        return view('lectures.entry')->with([
+            'user' => $user,
+            'day_of_week' => $lecture->formatDayOfWeek($request->d),
+            ]);
+    } 
+    
+    public function check(Request $request, Lecture $lecture)
+    {
+        $find_lecture = Lecture::find($request->entry_id);
+        $result = $lecture->confirm($request->p, $request->d, $request->user, $find_lecture);
+        return redirect($result);
     }
     
     public function update(LectureRequest $request, Lecture $lecture)

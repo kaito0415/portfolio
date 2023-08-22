@@ -22,7 +22,9 @@ use App\Http\Controllers\ChatController;
 Route::controller(LectureController::class)->middleware(['auth'])->group(function(){
     Route::get('/lectures/{user}', 'home');
     Route::get('/lectures/add/{user}', 'add');
+    Route::post('/lectures/check', 'check');
     Route::post('/lectures/{user}', 'store');
+    Route::get('/lectures/entry/{user}', 'entry');
     Route::get('/lectures/{lecture}/edit', 'edit');
     Route::put('/lectures/{lecture}', 'update');
     Route::get('/lectures/{lecture}/detail', 'detail');
@@ -44,7 +46,7 @@ Route::controller(CalendarController::class)->middleware(['auth'])->group(functi
 Route::controller(GroupController::class)->middleware(['auth'])->group(function(){
     Route::get('/groups/{user}/index', 'index')->name('group_index');
     Route::get('/groups/make/{user}', 'make');
-    Route::post('groups/check', 'check');
+    Route::post('/groups/check', 'check');
     Route::post('/groups/{user}', 'store');
     Route::get('/groups/entry/{user}', 'entry');
     Route::get('/groups/{group}/edit/{user}', 'edit');

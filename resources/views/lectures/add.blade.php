@@ -54,6 +54,9 @@
                 <div class="submit_button">
                     <button value="submit">保存</button>
                 </div>
+                <div class="trans_entry">
+                    <a href="/lectures/entry/{{ $user->id }}?p={{ $_GET['p'] }}&d={{ $_GET['d'] }}">IDを入力して授業に参加</a>
+                </div>
             </form>
         </body>
     </x-app-layout>
