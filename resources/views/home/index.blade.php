@@ -33,7 +33,7 @@
                                     @forelse($first_lectures as $first_lecture)
                                         @if($first_lecture->day_of_week == $i)
                                             <th>
-                                                <a href="/lectures/{{ $first_lecture->id }}/detail">{{ $first_lecture->name }}</a>
+                                                <a href="/lectures/{{ $first_lecture->id }}/detail?user={{ $user->id }}">{{ $first_lecture->name }}</a>
                                                 <br/>
                                                 <p>{{ $first_lecture->classroom }}</p>
                                             </th>
@@ -58,7 +58,7 @@
                                     @forelse($second_lectures as $second_lecture)
                                         @if($second_lecture->day_of_week == $i)
                                             <th>
-                                                <a href="/lectures/{{ $second_lecture->id }}/detail">{{ $second_lecture->name }}</a>
+                                                <a href="/lectures/{{ $second_lecture->id }}/detail?user={{ $user->id }}">{{ $second_lecture->name }}</a>
                                                 <br/>
                                                 <p>{{ $second_lecture->classroom }}</p>
                                             </th>
@@ -83,7 +83,7 @@
                                     @forelse($third_lectures as $third_lecture)
                                         @if($third_lecture->day_of_week == $i)
                                             <th>
-                                                <a href="/lectures/{{ $third_lecture->id }}/detail">{{ $third_lecture->name }}</a>
+                                                <a href="/lectures/{{ $third_lecture->id }}/detail?user={{ $user->id }}">{{ $third_lecture->name }}</a>
                                                 <br/>
                                                 <p>{{ $third_lecture->classroom }}</p>
                                             </th>
@@ -108,7 +108,7 @@
                                     @forelse($fourth_lectures as $fourth_lecture)
                                         @if($fourth_lecture->day_of_week == $i)
                                             <th>
-                                                <a href="/lectures/{{ $fourth_lecture->id }}/detail">{{ $fourth_lecture->name }}</a>
+                                                <a href="/lectures/{{ $fourth_lecture->id }}/detail?user={{ $user->id }}">{{ $fourth_lecture->name }}</a>
                                                 <br/>
                                                 <p>{{ $fourth_lecture->classroom }}</p>
                                             </th>
@@ -133,7 +133,7 @@
                                     @forelse($fifth_lectures as $fifth_lecture)
                                         @if($fifth_lecture->day_of_week == $i)
                                             <th>
-                                                <a href="/lectures/{{ $fifth_lecture->id }}/detail">{{ $fifth_lecture->name }}</a>
+                                                <a href="/lectures/{{ $fifth_lecture->id }}/detail?user={{ $user->id }}">{{ $fifth_lecture->name }}</a>
                                                 <br/>
                                                 <p>{{ $fifth_lecture->classroom }}</p>
                                             </th>
@@ -158,7 +158,7 @@
                                     @forelse($sixth_lectures as $sixth_lecture)
                                         @if($sixth_lecture->day_of_week == $i)
                                             <th>
-                                                <a href="/lectures/{{ $sixth_lecture->id }}/detail">{{ $sixth_lecture->name }}</a>
+                                                <a href="/lectures/{{ $sixth_lecture->id }}/detail?user={{ $user->id }}">{{ $sixth_lecture->name }}</a>
                                                 <br/>
                                                 <p>{{ $sixth_lecture->classroom }}</p>
                                             </th>

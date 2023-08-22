@@ -13,7 +13,7 @@
             <h1 class="time_of_week">{{ $day_of_week }}{{ $_GET['p'] }}時間目</h1>
         </x-slot>
         <body>
-            <form action="/lectures/{{ $lecture->id }}" method="POST">
+            <form action="/lectures/{{ $lecture->id }}?user={{ $_GET['user'] }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="create_name">
