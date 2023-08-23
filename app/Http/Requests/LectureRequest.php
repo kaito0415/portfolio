@@ -24,7 +24,9 @@ class LectureRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'lecture.name' =>'required|string|max:30',
+            'lecture.classroom' => 'nullable|string|max:30',
+            'lecture.teacher' => 'nullable|string|max:30',
         ];
     }
 }
