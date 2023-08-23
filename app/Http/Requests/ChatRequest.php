@@ -24,7 +24,7 @@ class ChatRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'chat.message' => 'required|string|max:300'
         ];
     }
 }
