@@ -54,7 +54,9 @@
                     <div class="insert_credit">
                         <select name="lecture[credit]">
                             @for($i = 0; $i < 11; $i++)
-                            @if($i == $lecture->credit)
+                            @if(empty(old('lecture.credit')) && $i == $lecture->credit)
+                            <option value="{{ $i }}" selected>{{ $i }}</option>
+                            @elseif(old('lecture.credit') == $i)
                             <option value="{{ $i }}" selected>{{ $i }}</option>
                             @else
                             <option value="{{ $i }}">{{ $i }}</option>
