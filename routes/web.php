@@ -55,6 +55,7 @@ Route::controller(GroupController::class)->middleware(['auth'])->group(function(
     Route::get('/groups/detail/{group}', 'detail');
     Route::get('/groups/invite', 'invite');
     Route::get('/groups/{group}/chat/{user}', 'chat');
+    Route::delete('/groups/{group}', 'delete');
     
 });
 

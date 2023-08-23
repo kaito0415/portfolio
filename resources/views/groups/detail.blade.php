@@ -22,6 +22,13 @@
                     <p class="user_name">{{ $user->name }}</p>
                 @endforeach
             </div>
+            <div class="delete">
+                <form action="/groups/{{ $group->id }}?user={{ $_GET['user'] }}" id="form_{{ $group->id }}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button onclic="deleteGroup({{ $group->id }})">グループから抜ける</button>
+                </form> 
+            </div>
         </body>
     </x-app-layout>
 </html>
