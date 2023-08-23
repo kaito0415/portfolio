@@ -19,7 +19,7 @@
                 <div class="create_name">
                     <h3>授業名</h3>
                     <div class="insert_name">
-                        @if("null !== old('lecture.name')")
+                        @if(!empty(old('lecture.name')))
                         <input type="text" name="lecture[name]" placeholder="授業名" value="{{ old('lecture.name') }}" />
                         @else
                         <input type="text" name="lecture[name]" placeholder="授業名" value="{{ $lecture->name }}" />
@@ -30,7 +30,7 @@
                 <div class="create_classroom">
                     <h3>教室名入力</h3>
                     <div class="insert_classroom">
-                        @if("null !== old('lecture.classroom')")
+                        @if(!empty(old('lecture.classroom')))
                         <input type="text" name="lecture[classroom]" placeholder="教室名" value="{{ old('lecture.classroom') }}" />
                         @else
                         <input type="text" name="lecture[classroom]" placeholder="教室名" value="{{ $lecture->classroom }}" />
@@ -41,7 +41,7 @@
                 <div class="create_teacher">
                     <h3>教員名入力</h3>
                     <div class="insert_teacher">
-                        @if("null !== old('lecture.classroom')")
+                        @if(!empty(old('lecture.classroom')))
                         <input type="text" name="lecture[teacher]" placeholder="教員名" value="{{ $lecture->teacher }}" />
                         @else
                         <input type="text" name="lecture[teacher]" placeholder="教員名" value="{{ $lecture->teacher }}" />
@@ -52,18 +52,14 @@
                  <div class="create_credit">
                     <h3>単位数入力</h3>
                     <div class="insert_credit">
-                        <select name="lecture[credit]" value="{{ $lecture->credit }}">
-                            <option value="0">0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
+                        <select name="lecture[credit]">
+                            @for($i = 0; $i < 11; $i++)
+                            @if($i == $lecture->credit)
+                            <option value="{{ $i }}" selected>{{ $i }}</option>
+                            @else
+                            <option value="{{ $i }}">{{ $i }}</option>
+                            @endif
+                            @endfor
                         </select>
                     </div>
                 </div>
