@@ -19,7 +19,7 @@
                     <h3>授業の選択</h3>
                     <select name="task[lecture_id]">
                         <option value="" selected hidden>選択してください</option>
-                        @foreach($lectures as $lecture)
+                        @foreach($user->lectures as $lecture)
                             @if(old('task.lecture_id') == $lecture->id)
                             <option value="{{ $lecture->id }}" selected>{{ $lecture->name }}</option>
                             @elseif(empty(old('task.lecture_id')) && $lecture->id == $task->lecture_id)

@@ -21,10 +21,7 @@ class TaskController extends Controller
     
    public function add(Lecture $lecture, User $user) 
    {
-       return view('tasks.add')->with([
-           'lectures' => $lecture->get(),
-           'user' => $user,
-           ]);
+       return view('tasks.add')->with(['user' => $user]);
    }
    
    public function store(TaskRequest $request, Task $task)
@@ -41,17 +38,20 @@ class TaskController extends Controller
         return redirect('/tasks/' . $task->id . '/detail');
     }
    
-   public function edit(Task $task, Lecture $lecture)
+   public function edit(Task $task, User $user)
    {
        return view('tasks.edit')->with([
            'task' => $task,
-           'lectures' => $lecture->get(),
+           'user' => $user,
            ]);
    }
    
-   public function detail(Task $task)
+   public function detail(Task $task, User $user)
    {
-       return view('tasks.detail')->with(['task' => $task]);
+       return view('tasks.detail')->with([
+           'task' => $task,
+           'user' => $user,
+           ]);
    }
    
    public function delete(Request $request, Task $task)

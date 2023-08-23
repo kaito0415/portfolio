@@ -34,10 +34,10 @@ Route::controller(LectureController::class)->middleware(['auth'])->group(functio
 Route::controller(TaskController::class)->middleware(['auth'])->group(function(){
     Route::post('/tasks', 'store');
     Route::get('/tasks/index/{user}', 'index');
-    Route::get('/tasks/add', 'add');
-    Route::get('/tasks/{task}/edit', 'edit');
+    Route::get('/tasks/add/{user}', 'add');
+    Route::get('/tasks/{task}/edit/{user}', 'edit');
     Route::put('/tasks/{task}', 'update');
-    Route::get('/tasks/{task}/detail', 'detail');
+    Route::get('/tasks/{task}/detail/{user}', 'detail');
     Route::delete('/tasks/{task}', 'delete');
 });
 

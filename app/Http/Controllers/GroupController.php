@@ -12,10 +12,7 @@ class GroupController extends Controller
     
     public function index(Group $group, User $user)
     {
-        return view('groups.index')->with([
-            'groups' => $group,
-            'user' => $user,
-            ]);
+        return view('groups.index')->with(['user' => $user,]);
     }
     
     public function make(Group $group, User $user)
