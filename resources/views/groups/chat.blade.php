@@ -19,6 +19,15 @@
                     <p class="log_time">{{ $chat->created_at }}</p>
                     <p class="log_user">{{ $chat->user->name }}</p>
                     <p class="log_message">{{ $chat->message }}</p>
+                    @if($chat->user->id == $user->id)
+                    <div class="delete">
+                        <form action="/chats/{{ $chat->id }}?group={{ $group->id }}&user={{ $user->id }}" id="form_{{ $chat->id }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button onclic="deleteChat({{ $chat->id }})">送信取り消し</button>
+                        </form>
+                    </div>
+                    @endif
                 </div>
                 @endforeach
             </div>

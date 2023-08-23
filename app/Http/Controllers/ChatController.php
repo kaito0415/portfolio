@@ -20,4 +20,10 @@ class ChatController extends Controller
         return redirect('/groups/' . $group->id . '/chat/' . $user->id);
     }
     
+    public function delete(Request $request, Chat $chat)
+    {
+        $chat->delete();
+        return redirect("/groups/" . $request->group . "/chat/" . $request->user);
+    }
+    
 }

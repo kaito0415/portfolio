@@ -61,6 +61,7 @@ Route::controller(GroupController::class)->middleware(['auth'])->group(function(
 
 Route::controller(ChatController::class)->middleware(['auth'])->group(function(){
     Route::post('/chats/{group}/{user}', 'store');
+    Route::delete('/chats/{chat}', 'delete');
 });
 
 Route::get('/dashboard', function () {
