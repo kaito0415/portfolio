@@ -81,4 +81,10 @@ class GroupController extends Controller
             ]);
     }
     
+    public function delete(Request $request, Group $group)
+    {
+        $group->users()->detach($request->user);
+        return redirect("/groups/" . $request->user . "/index");
+    }
+    
 }

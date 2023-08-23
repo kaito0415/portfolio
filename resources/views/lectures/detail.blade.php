@@ -37,7 +37,7 @@
                 <form action="/lectures/{{ $lecture->id }}?user={{ $_GET['user'] }}" id="form_{{ $lecture->id }}" method="post">
                     @csrf
                     @method('DELETE')
-                    <button onclick="deletePost({{ $lecture->id }})">授業の削除</button> 
+                    <button onclick="deleteLecture({{ $lecture->id }})">授業の削除</button> 
                 </form>
             </div>
         </body>
