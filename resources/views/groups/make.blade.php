@@ -17,13 +17,15 @@
                 <div class="create_name">
                     <h3>グループ名</h3>
                     <div class="insert_name">
-                        <input type="text" name="group[name]" placeholder="グループ名" />
+                        <input type="text" name="group[name]" placeholder="グループ名" value="{{ old('group.name') }}" />
+                        <p class="name_error">{{ $errors->first('group.name') }}</p>
                     </div>
                 </div>
                 <div class="create_password">
                     <h3>パスワードを決定</h3>
                     <div class="insert_password">
-                        <input type="text" name="group[password]" placeholder="パスワード" />
+                        <input type="text" name="group[password]" placeholder="パスワード" value="{{ old('group.password') }}" />
+                        <p class="password_error">{{ $errors->first('group.password') }}</p>
                     </div>
                 </div>
                 <div class="submit_button">

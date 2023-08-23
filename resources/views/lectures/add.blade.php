@@ -40,17 +40,13 @@
                     <h3>単位数入力</h3>
                     <div class="insert_credit">
                         <select name="lecture[credit]">
-                            <option value="0">0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
+                            @for($i = 0; $i < 11; $i++)
+                            @if($i == old('lecture.credit'))
+                            <option value="{{ $i }}" selected>{{ $i }}</option>
+                            @else
+                            <option value="{{ $i }}">{{ $i }}</option>
+                            @endif
+                            @endfor
                         </select>
                     </div>
                 </div>

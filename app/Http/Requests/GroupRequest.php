@@ -24,7 +24,8 @@ class GroupRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'group.name' => 'required|string|max:30',
+            'group.password' => 'required|string|between:8,16',
         ];
     }
 }

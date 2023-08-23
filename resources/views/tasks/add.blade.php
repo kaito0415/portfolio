@@ -39,7 +39,7 @@
                     <h3>期限</h3>
                     <div class="insert_limit">
                         <input type="datetime-local" name="task[limit]" value="{{ old('task.limit') }}" />
-                        <p class="name_error">{{ $errors->first('task.name') }}</p>
+                        <p class="limit_error">{{ $errors->first('task.limit') }}</p>
                     </div>
                 </div>
                 <div class="submit_button">
