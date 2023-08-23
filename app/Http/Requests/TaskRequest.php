@@ -24,7 +24,9 @@ class TaskRequest extends FormRequest
     public function rules()
     {
         return [
-            //
-        ];
+            'task.lecture_id' => 'required',
+            'task.name' => 'required|string|max:30',
+            'task.limit' => 'required|after:now',
+        ]; 
     }
 }
