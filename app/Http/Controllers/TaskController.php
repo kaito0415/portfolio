@@ -53,4 +53,10 @@ class TaskController extends Controller
    {
        return view('tasks.detail')->with(['task' => $task]);
    }
+   
+   public function delete(Request $request, Task $task)
+   {
+       $task->delete();
+       return redirect("/tasks/index/" . $request->user);
+   }
 }

@@ -17,6 +17,13 @@
                     @foreach($lecture->tasks as $task)
                         <h3 class="task_name">{{ $task->name }}  期限：{{ $task->limit }}</h3>
                         <a href="/tasks/{{ $task->id }}/detail" class="trans_detail">課題詳細へ</a>
+                        <div class="delete">
+                            <form action="/tasks/{{ $task->id }}?user={{ $user->id }}" id="form_{{ $task->id }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button onclic="deleteTask({{ $task->id }})">課題の削除</button>
+                            </form>
+                        </div>
                     @endforeach
                 @endforeach
             </div>

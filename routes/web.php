@@ -38,6 +38,7 @@ Route::controller(TaskController::class)->middleware(['auth'])->group(function()
     Route::get('/tasks/{task}/edit', 'edit');
     Route::put('/tasks/{task}', 'update');
     Route::get('/tasks/{task}/detail', 'detail');
+    Route::delete('/tasks/{task}', 'delete');
 });
 
 Route::controller(CalendarController::class)->middleware(['auth'])->group(function(){
