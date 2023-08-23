@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="edit">
-                <a href="/tasks/{{ $task->id }}/edit" class="task_edit">課題内容を編集</a>
+                <a href="/tasks/{{ $task->id }}/edit/{{ $user->id }}" class="task_edit">課題内容を編集</a>
             </div>
         </body>
     </x-app-layout>

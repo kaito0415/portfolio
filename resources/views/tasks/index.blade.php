@@ -16,7 +16,7 @@
                 @foreach($user->lectures as $lecture)
                     @foreach($lecture->tasks as $task)
                         <h3 class="task_name">{{ $task->name }}  期限：{{ $task->limit }}</h3>
-                        <a href="/tasks/{{ $task->id }}/detail" class="trans_detail">課題詳細へ</a>
+                        <a href="/tasks/{{ $task->id }}/detail/{{ $user->id }}" class="trans_detail">課題詳細へ</a>
                         <div class="delete">
                             <form action="/tasks/{{ $task->id }}?user={{ $user->id }}" id="form_{{ $task->id }}" method="post">
                             @csrf
@@ -28,7 +28,7 @@
                 @endforeach
             </div>
             <div class="add">
-                <a href="/tasks/add">新規課題作成</a>
+                <a href="/tasks/add/{{ $user->id }}">新規課題作成</a>
             </div>
         </body>
     </x-app-layout>
