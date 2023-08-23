@@ -36,7 +36,8 @@
                 <div class="create_chat">
                     <h3>メッセージを入力</h3>
                     <div class="insert_chat">
-                        <input type="text" name="chat[message]" placeholder="メッセージ" />
+                        <input type="text" name="chat[message]" placeholder="メッセージ" value="{{ old('chat.message') }}" />
+                        <p class="message_error">{{ $errors->first('chat.message') }}</p>
                     </div>
                 </div>
                 <div class="submit_button">
