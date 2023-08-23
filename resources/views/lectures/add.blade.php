@@ -18,19 +18,22 @@
                 <div class="create_name">
                     <h3>授業名</h3>
                     <div class="insert_name">
-                        <input type="text" name="lecture[name]" placeholder="授業名" />
+                        <input type="text" name="lecture[name]" placeholder="授業名" value="{{ old('lecture.name') }}" />
+                        <p class="name_error">{{ $errors->first('lecture.name') }}</p>
                     </div>
                 </div>
                 <div class="create_classroom">
                     <h3>教室名入力</h3>
                     <div class="insert_classroom">
-                        <input type="text" name="lecture[classroom]" placeholder="教室名" />
+                        <input type="text" name="lecture[classroom]" placeholder="教室名" value="{{ old('lecture.classroom') }}"/>
+                        <p class="classroom_error">{{ $errors->first('lecture.classroom') }}</p>
                     </div>
                 </div>
                 <div class="create_teacher">
                     <h3>教員名入力</h3>
                     <div class="insert_teacher">
-                        <input type="text" name="lecture[teacher]" placeholder="教員名" />
+                        <input type="text" name="lecture[teacher]" placeholder="教員名" value="{{ old('lecture.teacher') }}" />
+                        <p class="teacher_error">{{ $errors->first('lecture.teacher') }}</p>
                     </div>
                 </div>
                  <div class="create_credit">
