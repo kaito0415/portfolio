@@ -40,7 +40,7 @@ class GroupController extends Controller
     public function check(Request $request, Group $group, User $user)
     {
         $find_group = Group::find($request->entry_id);
-        $result = $group->confirm($request->user, $request->entry_id, $request->entry_password, $find_group->password);
+        $result = $group->confirm($request->user, $request->entry_id, $request->entry_password, $find_group->password, $user);
         return redirect($result);
     }
     
