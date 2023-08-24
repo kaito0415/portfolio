@@ -14,9 +14,9 @@ class Group extends Model
         'password',
         ];
     
-    public function confirm(int $user_id, int $group_id, string $check_password, string $collate_password, )
+    public function confirm(int $user_id, int $group_id, string $check_password, string $collate_password, User $user)
     {
-        if($check_password == $collate_password){
+        if($check_password == $collate_password && !(null !== ($user->groups()->where('groups.id', $group_id)->get()))){
             Group::find($group_id)->users()->attach($user_id);
             return "/groups/$group_id/chat/$user_id";
         }else{

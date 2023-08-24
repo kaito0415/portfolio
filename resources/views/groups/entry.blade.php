@@ -11,7 +11,7 @@
         <x-slot name="header">
             <h1 class="title">グループへの参加</h1>
             @isset($_GET['miss'])
-                <p>※グループIDまたはパスワードが違います</p>
+                <p>※グループIDまたはパスワードが違いますもしくはすでにこのグループに所属しています</p>
             @endisset
         </x-slot>
         <body>
@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="confirm_button">
-                    <button value="submit">送信</button>
+                    <button value="submit">参加</button>
                 </div>
             </form>
         </body>
