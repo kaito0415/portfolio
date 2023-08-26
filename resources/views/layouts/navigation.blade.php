@@ -12,14 +12,8 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link href="/lectures/{{ Auth::user()->id }}">
-                        {{ __('時間割へ') }}
-                    </x-nav-link>
-                    <x-nav-link href="/tasks/index/{{ Auth::user()->id }}">
-                        {{ __('課題の一覧へ') }}
-                    </x-nav-link>
-                    <x-nav-link href="/groups/{{ Auth::user()->id }}/index">
-                        {{ __('グループの一覧へ') }}
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                        {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
             </div>
