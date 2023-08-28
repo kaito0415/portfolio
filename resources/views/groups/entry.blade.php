@@ -20,17 +20,17 @@
                 <div class="create_group_id">
                     <h3>参加するグループのIDを入力</h3>
                     <div class="insert_group_id">
-                        <input type="text" name="entry_id" placeholder="グループID" />
+                        <input type="text" name="entry_id" placeholder="グループID" class="input input-bordered input-info w-full max-w-xs" />
                     </div>
                 </div>
                 <div class="create_password">
                     <h3>グループのパスワードを入力</h3>
                     <div class="insert_password">
-                        <input type="text" name="entry_password" placeholder="パスワード入力" />
+                        <input type="text" name="entry_password" placeholder="パスワード入力" class="input input-bordered input-info w-full max-w-xs" />
                     </div>
                 </div>
                 <div class="confirm_button">
-                    <button value="submit">参加</button>
+                    <button value="submit" class="btn btn-info btn-sm">参加</button>
                 </div>
             </form>
         </body>
