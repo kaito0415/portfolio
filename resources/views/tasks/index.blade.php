@@ -12,10 +12,15 @@
             <h1 class="title">課題一覧</h1>
         </x-slot>
         <body>
+            <br>
+            <div class="add">
+                <a href="/tasks/add/{{ $user->id }}" role="button" class="btn">新規課題作成</a>
+            </div>
             <div class="list_task">
                 @foreach($user->lectures as $lecture)
                     @foreach($lecture->tasks as $task)
-                        <div class="card w-96 bg-info text-primary-content">
+                        <br>
+                        <div class="card bg-info text-primary-content">
                             <div class="card-body">
                                 <h2 class="card-title">{{ $task->name }}</h2>
                                 <p>期限：{{ $task->limit }}</p>
@@ -31,12 +36,8 @@
                                 </div>
                             </div>
                         </div>
-                        <br>
                     @endforeach
                 @endforeach
-            </div>
-            <div class="add">
-                <a href="/tasks/add/{{ $user->id }}" class="link link-info">新規課題作成</a>
             </div>
         </body>
     </x-app-layout>
