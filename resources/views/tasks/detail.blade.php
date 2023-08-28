@@ -12,17 +12,19 @@
             <h1 class="title">課題詳細</h1>
         </x-slot>
         <body>
-            <div class="detail">
-                <h1>授業名：{{ $task->lecture->name }}</h1>
-                <div class="detail_name">
-                    <p>課題名：{{ $task->name }}</p>
+            <div class="detail" class="card w-96 text-primary-content">
+                <div class="card-body">
+                    <h2 class="card-title">{{ $task->name }}</h2>
+                    <div class="detail-lecture">
+                        <p>授業名：{{ $task->lecture->name }}</p>
+                    </div>
+                    <div class="detail_limit">
+                        <p>期限：{{ $task->limit }}</p>
+                    </div>
+                    <div class="card-actions justify-end">
+                        <a href="/tasks/{{ $task->id }}/edit/{{ $user->id }}" class="task_edit">課題内容を編集</a>
+                    </div>
                 </div>
-                <div class="detail_limit">
-                    <p>提出期限：{{ $task->limit }}</p>
-                </div>
-            </div>
-            <div class="edit">
-                <a href="/tasks/{{ $task->id }}/edit/{{ $user->id }}" class="task_edit">課題内容を編集</a>
             </div>
         </body>
     </x-app-layout>
