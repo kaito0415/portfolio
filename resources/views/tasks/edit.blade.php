@@ -12,7 +12,7 @@
             <h1 class="title">課題の編集</h1>
         </x-slot>
         <body>
-            <form action="/tasks/{{ $task->id }}" method="POST">
+            <form action="/tasks/{{ $task->id }}?user={{ $user->id }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="select_lecture">
