@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html data-theme="pastel">
     
     <head>
         <meta charset="UTF-8">
         <title>UUUTA</title>
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     
     <x-app-layout>
@@ -12,8 +11,8 @@
             <h1 class="title">時間割</h1>
         </x-slot>
         <body>
-            <div class="timetable">
-                <table class="borderd">
+            <div class="overflow-x-auto">
+                <table class="table">
                     <div class="day_of_week">
                         <tr>
                             <th></th>
@@ -33,19 +32,19 @@
                                     @forelse($first_lectures as $first_lecture)
                                         @if($first_lecture->day_of_week == $i)
                                             <th>
-                                                <a href="/lectures/{{ $first_lecture->id }}/detail?user={{ $user->id }}">{{ $first_lecture->name }}</a>
+                                                <a href="/lectures/{{ $first_lecture->id }}/detail?user={{ $user->id }}" class="link link-hover">{{ $first_lecture->name }}</a>
                                                 <br/>
                                                 <p>{{ $first_lecture->classroom }}</p>
                                             </th>
                                             @break
                                         @elseif($loop->last)
                                         <th>
-                                            <a href="/lectures/add/{{ $user->id }}?p=1&d={{ $i }}">授業の追加</a>
+                                            <a href="/lectures/add/{{ $user->id }}?p=1&d={{ $i }}" class="link link-info">授業の追加</a>
                                         </th>
                                         @endif
                                     @empty
                                         <th>
-                                            <a href="/lectures/add/{{ $user->id }}?p=1&d={{ $i }}">授業の追加</a>
+                                            <a href="/lectures/add/{{ $user->id }}?p=1&d={{ $i }}" class="link link-info">授業の追加</a>
                                         </th>
                                     @endforelse
                                 @endfor
@@ -58,19 +57,19 @@
                                     @forelse($second_lectures as $second_lecture)
                                         @if($second_lecture->day_of_week == $i)
                                             <th>
-                                                <a href="/lectures/{{ $second_lecture->id }}/detail?user={{ $user->id }}">{{ $second_lecture->name }}</a>
+                                                <a href="/lectures/{{ $second_lecture->id }}/detail?user={{ $user->id }}" class="link link-hover">{{ $second_lecture->name }}</a>
                                                 <br/>
                                                 <p>{{ $second_lecture->classroom }}</p>
                                             </th>
                                             @break
                                         @elseif($loop->last)
                                         <th>
-                                            <a href="/lectures/add/{{ $user->id }}?p=2&d={{ $i }}">授業の追加</a>
+                                            <a href="/lectures/add/{{ $user->id }}?p=2&d={{ $i }}" class="link link-info">授業の追加</a>
                                         </th>
                                         @endif
                                     @empty
                                         <th>
-                                            <a href="/lectures/add/{{ $user->id }}?p=2&d={{ $i }}">授業の追加</a>
+                                            <a href="/lectures/add/{{ $user->id }}?p=2&d={{ $i }}" class="link link-info">授業の追加</a>
                                         </th>
                                     @endforelse
                                 @endfor
@@ -83,19 +82,19 @@
                                     @forelse($third_lectures as $third_lecture)
                                         @if($third_lecture->day_of_week == $i)
                                             <th>
-                                                <a href="/lectures/{{ $third_lecture->id }}/detail?user={{ $user->id }}">{{ $third_lecture->name }}</a>
+                                                <a href="/lectures/{{ $third_lecture->id }}/detail?user={{ $user->id }}" class="link link-hover">{{ $third_lecture->name }}</a>
                                                 <br/>
                                                 <p>{{ $third_lecture->classroom }}</p>
                                             </th>
                                             @break
                                         @elseif($loop->last)
                                         <th>
-                                            <a href="/lectures/add/{{ $user->id }}?p=3&d={{ $i }}">授業の追加</a>
+                                            <a href="/lectures/add/{{ $user->id }}?p=3&d={{ $i }}" class="link link-info">授業の追加</a>
                                         </th>
                                         @endif
                                     @empty
                                         <th>
-                                            <a href="/lectures/add/{{ $user->id }}?p=3&d={{ $i }}">授業の追加</a>
+                                            <a href="/lectures/add/{{ $user->id }}?p=3&d={{ $i }}" class="link link-info">授業の追加</a>
                                         </th>
                                     @endforelse
                                 @endfor
@@ -108,19 +107,19 @@
                                     @forelse($fourth_lectures as $fourth_lecture)
                                         @if($fourth_lecture->day_of_week == $i)
                                             <th>
-                                                <a href="/lectures/{{ $fourth_lecture->id }}/detail?user={{ $user->id }}">{{ $fourth_lecture->name }}</a>
+                                                <a href="/lectures/{{ $fourth_lecture->id }}/detail?user={{ $user->id }}" class="link link-hover">{{ $fourth_lecture->name }}</a>
                                                 <br/>
                                                 <p>{{ $fourth_lecture->classroom }}</p>
                                             </th>
                                             @break
                                         @elseif($loop->last)
                                         <th>
-                                            <a href="/lectures/add/{{ $user->id }}?p=4&d={{ $i }}">授業の追加</a>
+                                            <a href="/lectures/add/{{ $user->id }}?p=4&d={{ $i }}" class="link link-info">授業の追加</a>
                                         </th>
                                         @endif
                                     @empty
                                         <th>
-                                            <a href="/lectures/add/{{ $user->id }}?p=4&d={{ $i }}">授業の追加</a>
+                                            <a href="/lectures/add/{{ $user->id }}?p=4&d={{ $i }}" class="link link-info">授業の追加</a>
                                         </th>
                                     @endforelse
                                 @endfor
@@ -133,19 +132,19 @@
                                     @forelse($fifth_lectures as $fifth_lecture)
                                         @if($fifth_lecture->day_of_week == $i)
                                             <th>
-                                                <a href="/lectures/{{ $fifth_lecture->id }}/detail?user={{ $user->id }}">{{ $fifth_lecture->name }}</a>
+                                                <a href="/lectures/{{ $fifth_lecture->id }}/detail?user={{ $user->id }}" class="link link-hover">{{ $fifth_lecture->name }}</a>
                                                 <br/>
                                                 <p>{{ $fifth_lecture->classroom }}</p>
                                             </th>
                                             @break
                                         @elseif($loop->last)
                                         <th>
-                                            <a href="/lectures/add/{{ $user->id }}?p=5&d={{ $i }}">授業の追加</a>
+                                            <a href="/lectures/add/{{ $user->id }}?p=5&d={{ $i }}" class="link link-info">授業の追加</a>
                                         </th>
                                         @endif
                                     @empty
                                         <th>
-                                            <a href="/lectures/add/{{ $user->id }}?p=5&d={{ $i }}">授業の追加</a>
+                                            <a href="/lectures/add/{{ $user->id }}?p=5&d={{ $i }}" class="link link-info">授業の追加</a>
                                         </th>
                                     @endforelse
                                 @endfor
@@ -158,19 +157,19 @@
                                     @forelse($sixth_lectures as $sixth_lecture)
                                         @if($sixth_lecture->day_of_week == $i)
                                             <th>
-                                                <a href="/lectures/{{ $sixth_lecture->id }}/detail?user={{ $user->id }}">{{ $sixth_lecture->name }}</a>
+                                                <a href="/lectures/{{ $sixth_lecture->id }}/detail?user={{ $user->id }}" class="link link-hover">{{ $sixth_lecture->name }}</a>
                                                 <br/>
                                                 <p>{{ $sixth_lecture->classroom }}</p>
                                             </th>
                                             @break
                                         @elseif($loop->last)
                                         <th>
-                                            <a href="/lectures/add/{{ $user->id }}?p=6&d={{ $i }}">授業の追加</a>
+                                            <a href="/lectures/add/{{ $user->id }}?p=6&d={{ $i }}" class="link link-info">授業の追加</a>
                                         </th>
                                         @endif
                                     @empty
                                         <th>
-                                            <a href="/lectures/add/{{ $user->id }}?p=6&d={{ $i }}">授業の追加</a>
+                                            <a href="/lectures/add/{{ $user->id }}?p=6&d={{ $i }}" class="link link-info">授業の追加</a>
                                         </th>
                                     @endforelse
                                 @endfor
