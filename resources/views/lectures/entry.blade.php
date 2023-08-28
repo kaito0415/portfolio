@@ -21,14 +21,14 @@
                 <div class="create_lecture_id">
                     <h3>追加する授業のIDを入力</h3>
                     <div class="insert_group_id">
-                        <input type="text" name="entry_id" placeholder="授業ID" />
+                        <input type="text" name="entry_id" placeholder="授業ID" class="input input-bordered input-info w-full max-w-xs" />
                     </div>
                 </div>
                 <div class="confirm_button">
-                    <button value="submit">追加</button>
+                    <button value="submit" class="btn btn-info btn-sm">追加</button>
                 </div>
                 <div class="return_add">
-                    <a href="/lectures/add/{{ $user->id }}?p={{ $_GET['p'] }}&d={{ $_GET['d'] }}">授業追加へ戻る</a>
+                    <a href="/lectures/add/{{ $user->id }}?p={{ $_GET['p'] }}&d={{ $_GET['d'] }}" class="link link-info">授業追加へ戻る</a>
                 </div>
             </form>
         </body>
