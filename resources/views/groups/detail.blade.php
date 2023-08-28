@@ -16,17 +16,27 @@
             </div>
         </x-slot>
         <body>
-            <h3>メンバー一覧</h3>
-            <div class="index_member">
-                @foreach( $group->users as $user )
-                    <p class="user_name">{{ $user->name }}</p>
-                @endforeach
+            <div class="overflow-x-auto h-96">
+                <table class="table table-pin-rows">
+                    <thead>
+                        <tr>
+                            <th class="bg-info">メンバー一覧</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <div class="index_member">
+                            @foreach( $group->users as $user )
+                                <tr><td>{{ $user->name }}</td></tr>
+                            @endforeach
+                        </div>
+                    </tbody>
+                </table>
             </div>
             <div class="delete">
                 <form action="/groups/{{ $group->id }}?user={{ $_GET['user'] }}" id="form_{{ $group->id }}" method="post">
                     @csrf
                     @method('DELETE')
-                    <button onclic="deleteGroup({{ $group->id }})">グループから抜ける</button>
+                    <button onclic="deleteGroup({{ $group->id }})" class="btn btn-info">グループから抜ける</button>
                 </form> 
             </div>
         </body>
