@@ -15,20 +15,28 @@
             <div class="list_task">
                 @foreach($user->lectures as $lecture)
                     @foreach($lecture->tasks as $task)
-                        <h3 class="task_name">{{ $task->name }}  期限：{{ $task->limit }}</h3>
-                        <a href="/tasks/{{ $task->id }}/detail/{{ $user->id }}" class="trans_detail">課題詳細へ</a>
-                        <div class="delete">
-                            <form action="/tasks/{{ $task->id }}?user={{ $user->id }}" id="form_{{ $task->id }}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button onclic="deleteTask({{ $task->id }})">課題の削除</button>
-                            </form>
+                        <div class="card w-96 bg-info text-primary-content">
+                            <div class="card-body">
+                                <h2 class="card-title">{{ $task->name }}</h2>
+                                <p>期限：{{ $task->limit }}</p>
+                                <a href="/tasks/{{ $task->id }}/detail/{{ $user->id }}" class="trans_detail">課題詳細へ</a>
+                                <div class="card-actions justify-end">
+                                    <div class="delete">
+                                        <form action="/tasks/{{ $task->id }}?user={{ $user->id }}" id="form_{{ $task->id }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button onclic="deleteTask({{ $task->id }})">課題の削除</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        <br>
                     @endforeach
                 @endforeach
             </div>
             <div class="add">
-                <a href="/tasks/add/{{ $user->id }}">新規課題作成</a>
+                <a href="/tasks/add/{{ $user->id }}" class="link link-info">新規課題作成</a>
             </div>
         </body>
     </x-app-layout>
