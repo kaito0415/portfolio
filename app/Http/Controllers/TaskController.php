@@ -28,14 +28,14 @@ class TaskController extends Controller
     {
         $input = $request['task'];
         $task->fill($input)->save();
-        return redirect('/tasks/' . $task->id . '/detail');
+        return redirect('/tasks/' . $task->id . '/detail/' . $request->user);
     }
     
     public function update(TaskRequest $request, Task $task)
     {
         $input_task = $request['task'];
         $task->fill($input_task)->save();
-        return redirect('/tasks/' . $task->id . '/detail');
+        return redirect('/tasks/' . $task->id . '/detail/' . $request->user);
     }
    
    public function edit(Task $task, User $user)

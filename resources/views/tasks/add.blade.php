@@ -12,7 +12,7 @@
             <h1 class="title">課題の追加</h1>
         </x-slot>
         <body>
-            <form action="/tasks" method="POST">
+            <form action="/tasks?user={{ $user->id }}" method="POST">
                 @csrf
                 <div class="select_lecture">
                     <h3>授業の選択</h3>
