@@ -20,9 +20,9 @@
                     <h3>授業名</h3>
                     <div class="insert_name">
                         @if(!empty(old('lecture.name')))
-                        <input type="text" name="lecture[name]" placeholder="授業名" value="{{ old('lecture.name') }}" />
+                        <input type="text" name="lecture[name]" placeholder="授業名" value="{{ old('lecture.name') }}" class="input input-bordered input-info w-full max-w-xs" />
                         @else
-                        <input type="text" name="lecture[name]" placeholder="授業名" value="{{ $lecture->name }}" />
+                        <input type="text" name="lecture[name]" placeholder="授業名" value="{{ $lecture->name }}" class="input input-bordered input-info w-full max-w-xs" />
                         @endif
                         <p class="name_error">{{ $errors->first('lecture.name') }}</p>
                     </div>
@@ -31,9 +31,9 @@
                     <h3>教室名入力</h3>
                     <div class="insert_classroom">
                         @if(!empty(old('lecture.classroom')))
-                        <input type="text" name="lecture[classroom]" placeholder="教室名" value="{{ old('lecture.classroom') }}" />
+                        <input type="text" name="lecture[classroom]" placeholder="教室名" value="{{ old('lecture.classroom') }}" class="input input-bordered input-info w-full max-w-xs" />
                         @else
-                        <input type="text" name="lecture[classroom]" placeholder="教室名" value="{{ $lecture->classroom }}" />
+                        <input type="text" name="lecture[classroom]" placeholder="教室名" value="{{ $lecture->classroom }}" class="input input-bordered input-info w-full max-w-xs" />
                         @endif
                         <p class="classroom_error">{{ $errors->first('lecture.classroom') }}</p>
                     </div>
@@ -42,9 +42,9 @@
                     <h3>教員名入力</h3>
                     <div class="insert_teacher">
                         @if(!empty(old('lecture.classroom')))
-                        <input type="text" name="lecture[teacher]" placeholder="教員名" value="{{ $lecture->teacher }}" />
+                        <input type="text" name="lecture[teacher]" placeholder="教員名" value="{{ $lecture->teacher }}" class="input input-bordered input-info w-full max-w-xs" />
                         @else
-                        <input type="text" name="lecture[teacher]" placeholder="教員名" value="{{ $lecture->teacher }}" />
+                        <input type="text" name="lecture[teacher]" placeholder="教員名" value="{{ $lecture->teacher }}" class="input input-bordered input-info w-full max-w-xs" />
                         @endif
                         <p class="teacher_error">{{ $errors->first('lecture.teacher') }}</p>
                     </div>
@@ -52,7 +52,7 @@
                  <div class="create_credit">
                     <h3>単位数入力</h3>
                     <div class="insert_credit">
-                        <select name="lecture[credit]">
+                        <select name="lecture[credit]" class="select select-info w-full max-w-xs">
                             @for($i = 0; $i < 11; $i++)
                             @if(empty(old('lecture.credit')) && $i == $lecture->credit)
                             <option value="{{ $i }}" selected>{{ $i }}</option>
@@ -66,7 +66,7 @@
                     </div>
                 </div>
                 <div class="submit_button">
-                    <button value="submit">保存</button>
+                    <button value="submit" class="btn btn-info btn-sm">保存</button>
                 </div>
             </form>
         </body>
