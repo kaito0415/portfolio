@@ -16,7 +16,7 @@
                 @csrf
                 <div class="select_lecture">
                     <h3>授業の選択</h3>
-                    <select name="task[lecture_id]">
+                    <select name="task[lecture_id]" class="select select-info w-full max-w-xs">
                         <option value="" selected hidden>選択してください</option>
                         @foreach($user->lectures as $lecture)
                             @if("null !== old('task.lecture_id')" && old('task.lecture_id') == $lecture->id)
@@ -31,19 +31,19 @@
                 <div class="create_name">
                     <h3>課題名</h3>
                     <div class="insert_name">
-                        <input type="text" name="task[name]" placeholder="課題名" value="{{ old('task.name') }}" />
+                        <input type="text" name="task[name]" placeholder="課題名" value="{{ old('task.name') }}" class="input input-bordered input-info w-full max-w-xs" />
                         <p class="name_error">{{ $errors->first('task.name') }}</p>
                     </div>
                 </div>
                 <div class="create_limit">
                     <h3>期限</h3>
                     <div class="insert_limit">
-                        <input type="datetime-local" name="task[limit]" value="{{ old('task.limit') }}" />
+                        <input type="datetime-local" name="task[limit]" value="{{ old('task.limit') }}" class="input input-bordered input-info w-full max-w-xs" class="select select-info w-full max-w-xs" />
                         <p class="limit_error">{{ $errors->first('task.limit') }}</p>
                     </div>
                 </div>
                 <div class="submit_button">
-                    <button value="submit">保存</button>
+                    <button value="submit" class="btn btn-info btn-sm">保存</button>
                 </div>
             </form>
         </body>

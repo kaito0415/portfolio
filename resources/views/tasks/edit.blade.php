@@ -17,7 +17,7 @@
                 @method('PUT')
                 <div class="select_lecture">
                     <h3>授業の選択</h3>
-                    <select name="task[lecture_id]">
+                    <select name="task[lecture_id]" class="select select-info w-full max-w-xs">
                         <option value="" selected hidden>選択してください</option>
                         @foreach($user->lectures as $lecture)
                             @if(old('task.lecture_id') == $lecture->id)
@@ -35,9 +35,9 @@
                     <h3>課題名</h3>
                     <div class="insert_name">
                         @if(!empty(old('task.name')))
-                        <input type="text" name="task[name]" placeholder="課題名" value="{{ old('task.name') }}" />
+                        <input type="text" name="task[name]" placeholder="課題名" value="{{ old('task.name') }}" class="input input-bordered input-info w-full max-w-xs" />
                         @else
-                        <input type="text" name="task[name]" placeholder="課題名" value="{{ $task->name }}" />
+                        <input type="text" name="task[name]" placeholder="課題名" value="{{ $task->name }}" class="input input-bordered input-info w-full max-w-xs" />
                         @endif
                         <p class="name_error">{{ $errors->first('task.name') }}</p>
                     </div>
@@ -46,15 +46,15 @@
                     <h3>期限</h3>
                     <div class="insert_limit">
                         @if(!empty(old('task.limit')))
-                        <input type="datetime-local" name="task[limit]" value="{{ old('task.limit') }}" />
+                        <input type="datetime-local" name="task[limit]" value="{{ old('task.limit') }}" class="select select-info w-full max-w-xs" />
                         @else
-                        <input type="datetime-local" name="task[limit]" value="{{ $task->limit }}" />
+                        <input type="datetime-local" name="task[limit]" value="{{ $task->limit }}" class="select select-info w-full max-w-xs" />
                         @endif
                         <p class="name_error">{{ $errors->first('task.name') }}</p>
                     </div>
                 </div>
                 <div class="submit_button">
-                    <button value="submit">保存</button>
+                    <button value="submit" class="btn btn-info btn-sm">保存</button>
                 </div>
             </form>
         </body>
